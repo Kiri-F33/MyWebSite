@@ -44,7 +44,9 @@ export default function BubbleGallery({ artworks, onSelectArtwork }: BubbleGalle
       <div className="navy-card p-8 sm:p-12 rounded-3xl relative overflow-hidden text-center">
         {/* Header */}
         <div className="max-w-2xl mx-auto mb-10">
-          <span className="px-3 py-1 rounded-full bg-[#34D399]/20 text-[#10B981] font-mono text-xs font-semibold uppercase tracking-wider inline-block mb-3 border border-white/10">
+          <span className="px-3 py-1 rounded-full font-mono text-xs font-semibold uppercase tracking-wider inline-block mb-3 border"
+            style={{ background: 'rgba(36,194,229,0.15)', borderColor: 'rgba(36,194,229,0.3)', color: 'var(--text-accent)' }}
+          >
             {bubbleGallery.sectionBadge}
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl font-bold mb-3" style={{ color: 'var(--text-title)' }}>
@@ -67,9 +69,10 @@ export default function BubbleGallery({ artworks, onSelectArtwork }: BubbleGalle
               <div
                 key={art.id}
                 onClick={() => handleBubbleClick(art, index)}
-                className={`group cursor-pointer relative ${sizeClass} rounded-full overflow-hidden border-4 border-white/90 dark:border-white/30 shadow-xl transition-all duration-300 hover:scale-110 hover:border-[#34D399] hover:shadow-2xl hover:shadow-[#34D399]/30 active:scale-90 flex items-center justify-center ${
+                className={`group cursor-pointer relative ${sizeClass} rounded-full overflow-hidden border-4 shadow-xl transition-all duration-300 hover:scale-110 hover:border-[#24C2E5] hover:shadow-2xl hover:shadow-[#24C2E5]/40 active:scale-90 flex items-center justify-center ${
                   isPopping ? 'animate-pop' : ''
                 }`}
+                style={{ borderColor: 'rgba(249,255,233,0.8)' }}
                 title={`${art.title} (Clique para estourar & abrir!)`}
               >
                 {hasImage ? (
@@ -81,16 +84,16 @@ export default function BubbleGallery({ artworks, onSelectArtwork }: BubbleGalle
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-[#75C9C8]/40 via-[#80A1D4]/40 to-[#34D399]/40 flex flex-col items-center justify-center p-3 text-center">
+                  <div className="w-full h-full bg-gradient-to-br from-[#FEA06D]/40 via-[#EDE273]/40 to-[#24C2E5]/40 flex flex-col items-center justify-center p-3 text-center">
                     <span className="text-2xl mb-1">🎨</span>
                     <span className="text-[10px] font-mono font-bold text-slate-800 dark:text-white line-clamp-1">{art.title}</span>
                   </div>
                 )}
 
                 {/* Hover overlay badge */}
-                <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-2 text-center text-white">
-                  <span className="text-xs font-serif font-bold line-clamp-1">{art.title}</span>
-                  <span className="text-[10px] text-[#34D399] font-mono mt-1 font-semibold">
+                <div className="absolute inset-0 bg-[#150A3C]/75 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-2 text-center text-white">
+                  <span className="text-xs font-serif font-bold line-clamp-1" style={{ color: 'var(--beige)' }}>{art.title}</span>
+                  <span className="text-[10px] font-mono mt-1 font-semibold" style={{ color: 'var(--sky-surge)' }}>
                     Estourar & Ver Ficha 🫧
                   </span>
                 </div>
@@ -103,7 +106,7 @@ export default function BubbleGallery({ artworks, onSelectArtwork }: BubbleGalle
         <div className="pt-8">
           <a
             href="#galeria"
-            className="inline-block px-6 py-3 rounded-full bg-[#34D399] text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg hover:brightness-110 transition-all active:scale-95 border border-white/30"
+            className="inline-block px-6 py-3 rounded-full bg-[#FEA06D] text-white font-bold text-xs uppercase tracking-wider shadow-lg hover:brightness-110 transition-all active:scale-95 border border-white/30"
           >
             {bubbleGallery.btnLoadMore}
           </a>

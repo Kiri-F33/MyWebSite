@@ -7,9 +7,9 @@ export default function CategoryPillCards() {
   const { categoriesSection } = SITE_CONFIG;
 
   const cardStyles = [
-    { bg: 'rgba(252,165,165,0.12)', border: 'rgba(252,165,165,0.35)', btnBg: '#FCA5A5' },
-    { bg: 'rgba(128,161,212,0.12)', border: 'rgba(128,161,212,0.35)', btnBg: '#80A1D4' },
-    { bg: 'rgba(52,211,153,0.12)', border: 'rgba(52,211,153,0.35)', btnBg: '#10B981' },
+    { bg: 'rgba(254,160,109,0.15)', border: 'rgba(254,160,109,0.4)', btnBg: '#FEA06D', icon: '🎨' },
+    { bg: 'rgba(36,194,229,0.15)', border: 'rgba(36,194,229,0.4)', btnBg: '#24C2E5', icon: '🌊' },
+    { bg: 'rgba(237,226,115,0.18)', border: 'rgba(237,226,115,0.5)', btnBg: '#EDE273', icon: '✨' },
   ];
 
   return (
@@ -17,9 +17,9 @@ export default function CategoryPillCards() {
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto mb-10">
         <span className="px-3 py-1 rounded-full font-mono text-xs font-semibold uppercase tracking-wider inline-block mb-3 border"
-          style={{ background: 'rgba(52,211,153,0.15)', borderColor: 'rgba(52,211,153,0.3)', color: 'var(--text-accent)' }}
+          style={{ background: 'rgba(36,194,229,0.15)', borderColor: 'rgba(36,194,229,0.3)', color: 'var(--text-accent)' }}
         >
-          🌱 {categoriesSection.title}
+          ✨ {categoriesSection.title}
         </span>
         <h2 className="font-serif text-3xl sm:text-4xl font-bold mb-3" style={{ color: 'var(--text-title)' }}>
           {categoriesSection.title}
@@ -33,6 +33,8 @@ export default function CategoryPillCards() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
         {categoriesSection.cards.map((card, idx) => {
           const style = cardStyles[idx % cardStyles.length];
+          const isYellowBtn = style.btnBg === '#EDE273';
+
           return (
             <div
               key={card.id}
@@ -41,7 +43,7 @@ export default function CategoryPillCards() {
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-3xl">{card.icon}</span>
+                  <span className="text-3xl">{style.icon}</span>
                   <span className="px-3 py-1 rounded-full text-[10px] font-mono font-bold shadow-sm border"
                     style={{ background: 'var(--bg-card)', borderColor: 'var(--border-card)', color: 'var(--text-muted)' }}
                   >
@@ -64,8 +66,11 @@ export default function CategoryPillCards() {
 
               <a
                 href="#galeria"
-                className="w-full py-3 rounded-2xl font-bold text-xs uppercase tracking-wider text-center block shadow-md hover:brightness-110 transition-all text-white"
-                style={{ background: style.btnBg }}
+                className="w-full py-3 rounded-2xl font-bold text-xs uppercase tracking-wider text-center block shadow-md hover:brightness-110 transition-all"
+                style={{
+                  background: style.btnBg,
+                  color: isYellowBtn ? '#1E1446' : '#FFFFFF',
+                }}
               >
                 Explorar
               </a>

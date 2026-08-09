@@ -36,7 +36,7 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="md:col-span-4 space-y-3">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-[#10B981] text-white flex items-center justify-center font-bold text-lg shadow-md border border-white/20">
+              <div className="w-10 h-10 rounded-2xl bg-[#24C2E5] text-white flex items-center justify-center font-bold text-lg shadow-md border border-white/20">
                 🎨
               </div>
               <span className="font-serif text-2xl font-bold" style={{ color: 'var(--text-title)' }}>{brand.name}</span>
@@ -58,7 +58,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 p-2.5 rounded-2xl border transition-all"
-                  style={{ background: 'rgba(52,211,153,0.05)', borderColor: 'var(--border-card)', color: 'var(--text-title)' }}
+                  style={{ background: 'rgba(36,194,229,0.06)', borderColor: 'var(--border-card)', color: 'var(--text-title)' }}
                 >
                   <span>{social.emoji}</span>
                   <div>
@@ -91,7 +91,7 @@ export default function Footer() {
                   style={{ background: 'var(--bg-input)', borderColor: 'var(--border-card)', color: 'var(--text-title)' }}
                 />
                 <button type="submit"
-                  className="px-4 py-2 rounded-xl bg-[#10B981] hover:bg-[#059669] text-white font-bold text-xs shrink-0 border border-white/20 shadow-md"
+                  className="px-4 py-2 rounded-xl bg-[#24C2E5] hover:brightness-110 text-white font-bold text-xs shrink-0 border border-white/20 shadow-md"
                 >
                   Assinar
                 </button>

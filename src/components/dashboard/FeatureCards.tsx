@@ -10,7 +10,7 @@ export default function FeatureCards() {
       desc: 'Ilustrações autorais e estudos visuais focados em expressão.',
       icon: '🎨',
       link: '#sobre',
-      color: 'var(--mint-green)',
+      color: '#24C2E5', // Sky Surge
     },
     {
       number: '02',
@@ -18,7 +18,7 @@ export default function FeatureCards() {
       desc: 'Siga no Instagram, ArtStation e Behance para novidades.',
       icon: '📷',
       link: SOCIAL_LINKS.instagram.url,
-      color: 'var(--sky-blue)',
+      color: '#FEA06D', // Tangerine Dream
     },
     {
       number: '03',
@@ -26,7 +26,7 @@ export default function FeatureCards() {
       desc: 'Solicite seu desenho personalizado em formato digital ou físico.',
       icon: '✨',
       link: '#encomendas',
-      color: 'var(--coral-pink)',
+      color: '#EDE273', // Pale Amber
     }
   ];
 

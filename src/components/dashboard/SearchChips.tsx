@@ -16,9 +16,9 @@ export default function SearchChips() {
   };
 
   const chipColors = [
-    { bg: 'rgba(16,185,129,0.2)', border: 'rgba(52,211,153,0.4)', text: 'var(--text-accent)' },
-    { bg: 'rgba(128,161,212,0.2)', border: 'rgba(128,161,212,0.4)', text: 'var(--sky-blue)' },
-    { bg: 'rgba(252,165,165,0.15)', border: 'rgba(252,165,165,0.3)', text: 'var(--coral-pink)' },
+    { bg: 'rgba(36,194,229,0.15)', border: 'rgba(36,194,229,0.4)', text: '#24C2E5' },
+    { bg: 'rgba(254,160,109,0.15)', border: 'rgba(254,160,109,0.4)', text: '#FEA06D' },
+    { bg: 'rgba(237,226,115,0.18)', border: 'rgba(237,226,115,0.5)', text: '#EDE273' },
   ];
 
   return (
@@ -28,7 +28,7 @@ export default function SearchChips() {
         <h3 className="font-serif text-xl font-bold flex items-center gap-2" style={{ color: 'var(--text-title)' }}>
           <span>Categorias & Tags</span>
         </h3>
-        <button className="w-8 h-8 rounded-full bg-[#10B981] text-white flex items-center justify-center text-xs font-bold shadow-md">
+        <button className="w-8 h-8 rounded-full bg-[#24C2E5] text-white flex items-center justify-center text-xs font-bold shadow-md">
           ✕
         </button>
       </div>
@@ -66,11 +66,11 @@ export default function SearchChips() {
 
       {/* Decorative Card */}
       <div className="mt-6 p-4 rounded-3xl navy-card flex items-center gap-4">
-        <div className="w-14 h-14 rounded-2xl bg-[#10B981] text-white flex items-center justify-center text-2xl shadow-md border border-white/20">
+        <div className="w-14 h-14 rounded-2xl bg-[#FEA06D] text-white flex items-center justify-center text-2xl shadow-md border border-white/20">
           ✨
         </div>
         <div>
-          <h4 className="font-bold text-xs" style={{ color: 'var(--text-title)' }}>Dudu Atelier Tag</h4>
+          <h4 className="font-bold text-xs" style={{ color: 'var(--text-title)' }}>Atelier Tags</h4>
           <p className="text-[11px]" style={{ color: 'var(--text-body)' }}>Explore e encontre estilos por tags</p>
         </div>
       </div>

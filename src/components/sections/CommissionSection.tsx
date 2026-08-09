@@ -27,7 +27,7 @@ export default function CommissionSection() {
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-12">
         <span className="px-3 py-1 rounded-full font-mono text-xs font-semibold uppercase tracking-wider inline-block mb-3 border"
-          style={{ background: 'rgba(252,165,165,0.15)', borderColor: 'rgba(252,165,165,0.3)', color: 'var(--coral-pink)' }}
+          style={{ background: 'rgba(254,160,109,0.15)', borderColor: 'rgba(254,160,109,0.3)', color: 'var(--tangerine)' }}
         >
           {commissions.sectionBadge}
         </span>
@@ -49,12 +49,12 @@ export default function CommissionSection() {
               selectedPackage === pkg.id ? 'scale-[1.02]' : 'opacity-90 hover:opacity-100'
             }`}
             style={{
-              borderColor: selectedPackage === pkg.id ? 'var(--text-accent)' : 'var(--border-card)',
+              borderColor: selectedPackage === pkg.id ? 'var(--sky-surge)' : 'var(--border-card)',
               borderWidth: selectedPackage === pkg.id ? '2px' : '1px',
             }}
           >
             {pkg.popular && (
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[#10B981] text-white text-[10px] font-bold font-mono uppercase tracking-wider shadow-sm">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-[#FEA06D] text-white text-[10px] font-bold font-mono uppercase tracking-wider shadow-sm">
                 Mais Solicitado
               </div>
             )}
@@ -65,14 +65,14 @@ export default function CommissionSection() {
 
               <div className="mb-4 pb-4 border-b" style={{ borderColor: 'var(--border-card)' }}>
                 <span className="text-[11px] font-mono block" style={{ color: 'var(--text-muted)' }}>A partir de</span>
-                <span className="font-serif text-3xl font-bold" style={{ color: 'var(--text-accent)' }}>{pkg.startingPrice}</span>
+                <span className="font-serif text-3xl font-bold" style={{ color: 'var(--sky-surge)' }}>{pkg.startingPrice}</span>
                 <span className="text-[11px] font-mono block mt-0.5" style={{ color: 'var(--text-muted)' }}>Prazo: {pkg.deliveryTime}</span>
               </div>
 
               <ul className="space-y-2 mb-6">
                 {pkg.features.map((feat, idx) => (
                   <li key={idx} className="text-xs flex items-start gap-2" style={{ color: 'var(--text-body)' }}>
-                    <span style={{ color: 'var(--text-accent)' }} className="font-bold">✓</span>
+                    <span style={{ color: 'var(--sky-surge)' }} className="font-bold">✓</span>
                     <span>{feat}</span>
                   </li>
                 ))}
@@ -83,7 +83,7 @@ export default function CommissionSection() {
               onClick={() => setSelectedPackage(pkg.id)}
               className="w-full py-2.5 rounded-2xl text-xs font-bold font-mono uppercase tracking-wider transition-all"
               style={{
-                background: selectedPackage === pkg.id ? 'var(--text-accent)' : 'rgba(52,211,153,0.1)',
+                background: selectedPackage === pkg.id ? 'var(--sky-surge)' : 'rgba(36,194,229,0.1)',
                 color: selectedPackage === pkg.id ? '#FFFFFF' : 'var(--text-title)',
               }}
             >
@@ -104,9 +104,9 @@ export default function CommissionSection() {
 
         {submitted ? (
           <div className="p-6 rounded-2xl border text-center space-y-2"
-            style={{ background: 'rgba(52,211,153,0.1)', borderColor: 'rgba(52,211,153,0.3)' }}
+            style={{ background: 'rgba(36,194,229,0.1)', borderColor: 'rgba(36,194,229,0.3)' }}
           >
-            <div className="w-10 h-10 rounded-full bg-[#10B981] text-white font-bold text-lg flex items-center justify-center mx-auto">
+            <div className="w-10 h-10 rounded-full bg-[#24C2E5] text-white font-bold text-lg flex items-center justify-center mx-auto">
               ✓
             </div>
             <h4 className="font-serif text-lg font-bold" style={{ color: 'var(--text-title)' }}>Solicitação Enviada!</h4>
@@ -143,7 +143,7 @@ export default function CommissionSection() {
               />
             </div>
             <button type="submit"
-              className="w-full py-3 rounded-2xl bg-[#10B981] hover:bg-[#059669] text-white font-bold text-xs uppercase tracking-wider shadow-lg active:scale-[0.98] transition-all"
+              className="w-full py-3 rounded-2xl bg-[#FEA06D] hover:brightness-110 text-white font-bold text-xs uppercase tracking-wider shadow-lg active:scale-[0.98] transition-all"
             >
               Enviar Solicitação
             </button>
