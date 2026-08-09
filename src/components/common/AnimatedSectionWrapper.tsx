@@ -21,18 +21,14 @@ export default function AnimatedSectionWrapper({
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Bi-directional observer (animates on scroll down AND scroll up)
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          if (sectionRef.current) {
-            observer.unobserve(sectionRef.current);
-          }
-        }
+        setIsVisible(entry.isIntersecting);
       },
       {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px',
+        threshold: 0.15,
+        rootMargin: '0px 0px -20px 0px',
       }
     );
 
@@ -51,16 +47,16 @@ export default function AnimatedSectionWrapper({
     if (!isVisible) {
       switch (animation) {
         case 'zoom-in':
-          return 'opacity-0 scale-90 translate-y-8';
+          return 'opacity-0 scale-90 translate-y-12';
         case 'slide-left':
-          return 'opacity-0 -translate-x-16 translate-y-4';
+          return 'opacity-0 -translate-x-20 translate-y-6';
         case 'slide-right':
-          return 'opacity-0 translate-x-16 translate-y-4';
+          return 'opacity-0 translate-x-20 translate-y-6';
         case 'flip-up':
-          return 'opacity-0 rotate-x-12 translate-y-12 scale-95';
+          return 'opacity-0 -rotate-x-12 translate-y-16 scale-95';
         case 'fade-up':
         default:
-          return 'opacity-0 translate-y-12';
+          return 'opacity-0 translate-y-16';
       }
     }
 
@@ -72,7 +68,7 @@ export default function AnimatedSectionWrapper({
       ref={sectionRef}
       id={id}
       style={{ transitionDelay: `${delayMs}ms` }}
-      className={`transition-all duration-800 cubic-bezier(0.16, 1, 0.3, 1) transform section-transition ${getAnimationClasses()} ${className}`}
+      className={`transition-all duration-700 cubic-bezier(0.16, 1, 0.3, 1) transform section-transition ${getAnimationClasses()} ${className}`}
     >
       {children}
     </div>

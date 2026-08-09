@@ -54,8 +54,9 @@ html[data-theme="dark"] {
   --font-serif: var(--font-playfair), Georgia, serif;
 }
 
-html {
+html, body {
   scroll-behavior: smooth;
+  height: 100%;
 }
 
 body {
