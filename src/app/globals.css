@@ -172,6 +172,12 @@ html[data-theme="light"] .theme-bg-gradient {
   box-shadow: 0 15px 35px rgba(52, 211, 153, 0.3);
 }
 
+/* GPU Accelerated Smooth Section Transitions */
+.section-transition {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
