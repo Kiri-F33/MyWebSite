@@ -24,7 +24,7 @@ export default function AboutSection() {
           {/* Text Bio & Tools */}
           <div className="lg:col-span-7 space-y-5">
             <span className="px-3 py-1 rounded-full font-mono text-xs font-semibold border inline-block"
-              style={{ background: 'rgba(52,211,153,0.15)', borderColor: 'rgba(52,211,153,0.3)', color: 'var(--text-accent)' }}
+              style={{ background: 'rgba(36,194,229,0.15)', borderColor: 'rgba(36,194,229,0.3)', color: 'var(--text-accent)' }}
             >
               {about.sectionBadge}
             </span>
@@ -50,7 +50,7 @@ export default function AboutSection() {
                 {about.tools.map((tool, idx) => (
                   <span key={idx}
                     className="px-3 py-1 rounded-full text-xs font-mono font-medium border"
-                    style={{ background: 'rgba(52,211,153,0.08)', borderColor: 'var(--border-card)', color: 'var(--text-body)' }}
+                    style={{ background: 'rgba(254,160,109,0.15)', borderColor: 'var(--border-card)', color: 'var(--text-body)' }}
                   >
                     ✨ {tool}
                   </span>

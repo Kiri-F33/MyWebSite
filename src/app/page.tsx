@@ -31,65 +31,82 @@ export default function Home() {
       {/* Top Navbar */}
       <Navbar onOpenAddModal={() => setIsAddModalOpen(true)} />
 
-      {/* Atmospheric Cloud & Floating Bubble Hero Banner */}
-      <AnimatedSectionWrapper animation="zoom-in">
-        <CloudHeroBanner onOpenAddModal={() => setIsAddModalOpen(true)} />
-      </AnimatedSectionWrapper>
-
-      {/* Main Content Dashboard */}
-      <main className="flex-1 space-y-4 max-w-7xl mx-auto w-full px-4 sm:px-6 relative z-10">
-        {/* Section 1: 3 Pastel Category Pill Cards */}
-        <AnimatedSectionWrapper animation="fade-up" delayMs={100}>
-          <CategoryPillCards />
+      {/* Hero Banner Section (Full Screen Viewport) */}
+      <section className="min-h-[85vh] sm:min-h-screen flex flex-col justify-center relative z-10">
+        <AnimatedSectionWrapper animation="zoom-in">
+          <CloudHeroBanner onOpenAddModal={() => setIsAddModalOpen(true)} />
         </AnimatedSectionWrapper>
+      </section>
+
+      {/* Main Content Dashboard with Full Screen Viewport Sections & Varied Transitions */}
+      <main className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 relative z-10 space-y-8">
+        
+        {/* Section 1: 3 Pastel Category Pill Cards (Transition: Fade Up) */}
+        <section className="min-h-[80vh] sm:min-h-screen flex flex-col justify-center py-10 sm:py-16">
+          <AnimatedSectionWrapper animation="fade-up" delayMs={50}>
+            <CategoryPillCards />
+          </AnimatedSectionWrapper>
+        </section>
 
         <SectionDivider icon="🌱" label="Mundo de Ilustrações" />
 
-        {/* Section 2: Circular Bubble Gallery */}
-        <AnimatedSectionWrapper animation="zoom-in" delayMs={150}>
-          <BubbleGallery
-            artworks={ARTWORKS_DATA}
-            onSelectArtwork={art => setSelectedArtwork(art)}
-          />
-        </AnimatedSectionWrapper>
+        {/* Section 2: Circular Bubble Gallery (Transition: Zoom In) */}
+        <section className="min-h-[80vh] sm:min-h-screen flex flex-col justify-center py-10 sm:py-16">
+          <AnimatedSectionWrapper animation="zoom-in" delayMs={100}>
+            <BubbleGallery
+              artworks={ARTWORKS_DATA}
+              onSelectArtwork={art => setSelectedArtwork(art)}
+            />
+          </AnimatedSectionWrapper>
+        </section>
 
         <SectionDivider icon="🎨" label="Acervo Completo" />
 
-        {/* Section 3: Standard Gallery Grid Dashboard */}
-        <AnimatedSectionWrapper animation="fade-up" delayMs={150}>
-          <ArtworkGrid
-            artworks={ARTWORKS_DATA}
-            onSelectArtwork={art => setSelectedArtwork(art)}
-          />
-        </AnimatedSectionWrapper>
+        {/* Section 3: Standard Gallery Grid Dashboard (Transition: Slide Left) */}
+        <section className="min-h-[80vh] sm:min-h-screen flex flex-col justify-center py-10 sm:py-16">
+          <AnimatedSectionWrapper animation="slide-left" delayMs={100}>
+            <ArtworkGrid
+              artworks={ARTWORKS_DATA}
+              onSelectArtwork={art => setSelectedArtwork(art)}
+            />
+          </AnimatedSectionWrapper>
+        </section>
 
         <SectionDivider icon="✦" label="Bastidores & Processo" />
 
-        {/* Section 4: Process Comparison Slider */}
-        <AnimatedSectionWrapper animation="zoom-in" delayMs={150}>
-          <ProcessSlider />
-        </AnimatedSectionWrapper>
+        {/* Section 4: Process Comparison Slider (Transition: Slide Right) */}
+        <section className="min-h-[80vh] sm:min-h-screen flex flex-col justify-center py-10 sm:py-16">
+          <AnimatedSectionWrapper animation="slide-right" delayMs={100}>
+            <ProcessSlider />
+          </AnimatedSectionWrapper>
+        </section>
 
         <SectionDivider icon="✍️" label="Diário de Ateliê" />
 
-        {/* Section 5: Blog & Articles Section */}
-        <AnimatedSectionWrapper animation="fade-up" delayMs={150}>
-          <BlogSection />
-        </AnimatedSectionWrapper>
+        {/* Section 5: Blog & Articles Section (Transition: Fade Up) */}
+        <section className="min-h-[80vh] sm:min-h-screen flex flex-col justify-center py-10 sm:py-16">
+          <AnimatedSectionWrapper animation="fade-up" delayMs={100}>
+            <BlogSection />
+          </AnimatedSectionWrapper>
+        </section>
 
         <SectionDivider icon="✨" label="Sobre o Atelier" />
 
-        {/* Section 6: About Section */}
-        <AnimatedSectionWrapper animation="zoom-in" delayMs={150}>
-          <AboutSection />
-        </AnimatedSectionWrapper>
+        {/* Section 6: About Section (Transition: Slide Left) */}
+        <section className="min-h-[80vh] sm:min-h-screen flex flex-col justify-center py-10 sm:py-16">
+          <AnimatedSectionWrapper animation="slide-left" delayMs={100}>
+            <AboutSection />
+          </AnimatedSectionWrapper>
+        </section>
 
         <SectionDivider icon="💌" label="Encomendas Personalizadas" />
 
-        {/* Section 7: Commission Form Section */}
-        <AnimatedSectionWrapper animation="fade-up" delayMs={150}>
-          <CommissionSection />
-        </AnimatedSectionWrapper>
+        {/* Section 7: Commission Form Section (Transition: Zoom In) */}
+        <section className="min-h-[80vh] sm:min-h-screen flex flex-col justify-center py-10 sm:py-16">
+          <AnimatedSectionWrapper animation="zoom-in" delayMs={100}>
+            <CommissionSection />
+          </AnimatedSectionWrapper>
+        </section>
       </main>
 
       {/* Artwork Lightbox Modal */}

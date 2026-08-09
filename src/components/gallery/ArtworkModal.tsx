@@ -37,7 +37,7 @@ export default function ArtworkModal({ artwork, onClose }: ArtworkModalProps) {
       <div
         onClick={onClose}
         className="absolute inset-0 backdrop-blur-md cursor-pointer"
-        style={{ background: 'rgba(0,0,0,0.6)' }}
+        style={{ background: 'rgba(21,10,60,0.75)' }}
       />
 
       {/* Modal Container */}
@@ -47,7 +47,7 @@ export default function ArtworkModal({ artwork, onClose }: ArtworkModalProps) {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full flex items-center justify-center border transition-colors font-bold"
+          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full flex items-center justify-center border transition-all hover:scale-110 font-bold"
           style={{ background: 'var(--bg-page)', borderColor: 'var(--border-card)', color: 'var(--text-title)' }}
           aria-label="Fechar modal"
         >
@@ -56,7 +56,7 @@ export default function ArtworkModal({ artwork, onClose }: ArtworkModalProps) {
 
         {/* Image Preview Side */}
         <div className="relative w-full md:w-3/5 flex items-center justify-center p-6 min-h-[350px] md:min-h-[550px]"
-          style={{ background: 'rgba(0,0,0,0.15)' }}
+          style={{ background: 'rgba(0,0,0,0.2)' }}
         >
           {hasImage ? (
             <div className="relative w-full h-full min-h-[300px] md:min-h-[500px]">
@@ -81,8 +81,8 @@ export default function ArtworkModal({ artwork, onClose }: ArtworkModalProps) {
           <div>
             {/* Category */}
             <div className="flex items-center gap-2 mb-3">
-              <span className="px-3 py-1 text-xs font-mono rounded-full font-semibold border"
-                style={{ background: 'var(--text-accent)', color: '#FFFFFF', borderColor: 'transparent' }}
+              <span className="px-3 py-1 text-xs font-mono rounded-full font-semibold text-white border-0"
+                style={{ background: '#24C2E5' }}
               >
                 {artwork.categoryName}
               </span>
@@ -101,9 +101,9 @@ export default function ArtworkModal({ artwork, onClose }: ArtworkModalProps) {
 
             {/* Story Behind Artwork */}
             <div className="mb-6 p-4 rounded-2xl border"
-              style={{ background: 'rgba(52,211,153,0.08)', borderColor: 'var(--border-card)' }}
+              style={{ background: 'rgba(36,194,229,0.1)', borderColor: 'var(--border-card)' }}
             >
-              <h4 className="text-xs font-mono uppercase mb-2 tracking-wider font-bold" style={{ color: 'var(--text-accent)' }}>
+              <h4 className="text-xs font-mono uppercase mb-2 tracking-wider font-bold" style={{ color: '#24C2E5' }}>
                 ✦ História da Criação
               </h4>
               <p className="text-xs italic leading-relaxed" style={{ color: 'var(--text-body)' }}>
@@ -115,12 +115,12 @@ export default function ArtworkModal({ artwork, onClose }: ArtworkModalProps) {
             <div className="space-y-2 text-xs font-mono pt-4 border-t" style={{ borderColor: 'var(--border-card)' }}>
               <div className="flex justify-between py-1 border-b" style={{ borderColor: 'var(--border-card)' }}>
                 <span style={{ color: 'var(--text-muted)' }}>Mídia / Software:</span>
-                <span className="font-semibold" style={{ color: 'var(--text-accent)' }}>{artwork.medium}</span>
+                <span className="font-semibold" style={{ color: '#24C2E5' }}>{artwork.medium}</span>
               </div>
               {artwork.dimensions && (
                 <div className="flex justify-between py-1 border-b" style={{ borderColor: 'var(--border-card)' }}>
                   <span style={{ color: 'var(--text-muted)' }}>Dimensões:</span>
-                  <span className="font-semibold" style={{ color: 'var(--text-accent)' }}>{artwork.dimensions}</span>
+                  <span className="font-semibold" style={{ color: '#24C2E5' }}>{artwork.dimensions}</span>
                 </div>
               )}
             </div>
@@ -131,7 +131,7 @@ export default function ArtworkModal({ artwork, onClose }: ArtworkModalProps) {
                 <span
                   key={idx}
                   className="px-2.5 py-1 text-[11px] font-sans rounded-lg border"
-                  style={{ background: 'rgba(52,211,153,0.1)', borderColor: 'var(--border-card)', color: 'var(--text-body)' }}
+                  style={{ background: 'rgba(254,160,109,0.12)', borderColor: 'var(--border-card)', color: 'var(--text-body)' }}
                 >
                   #{tag}
                 </span>
@@ -144,7 +144,7 @@ export default function ArtworkModal({ artwork, onClose }: ArtworkModalProps) {
             <a
               href="#encomendas"
               onClick={onClose}
-              className="flex-1 py-3 text-center rounded-2xl bg-[#10B981] hover:bg-[#059669] text-white font-bold text-xs uppercase tracking-wider shadow-lg transition-all"
+              className="flex-1 py-3 text-center rounded-2xl bg-[#FEA06D] hover:brightness-110 text-white font-bold text-xs uppercase tracking-wider shadow-lg transition-all"
             >
               Pedir Arte Semelhante
             </a>
