@@ -9,7 +9,7 @@ interface NavbarProps {
 }
 
 export default function Navbar({ onOpenAddModal }: NavbarProps) {
-  const [activeTab, setActiveTab] = useState('Home');
+  const [activeTab, setActiveTab] = useState('home');
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navLinks = [
@@ -25,8 +25,8 @@ export default function Navbar({ onOpenAddModal }: NavbarProps) {
       <ThemeToggle />
 
       <div className="glass-pill-nav-navy py-3 px-6 sm:px-8 flex items-center justify-between shadow-2xl border-2 border-white/30">
-        {/* Left: Brand Logo & Add Button with generous spacing */}
-        <div className="flex items-center gap-3">
+        {/* Left Zone: Brand Logo */}
+        <div className="flex items-center gap-3 pr-4">
           <a
             href="#hero"
             className="w-10 h-10 rounded-2xl border-2 flex items-center justify-center font-bold text-base transition-transform hover:scale-105 shadow-sm"
@@ -39,18 +39,12 @@ export default function Navbar({ onOpenAddModal }: NavbarProps) {
           >
             🎨
           </a>
-
-          <button
-            onClick={onOpenAddModal}
-            className="w-10 h-10 rounded-2xl bg-[#B64FFB] hover:brightness-110 text-white flex items-center justify-center font-bold text-lg shadow-md transition-all active:scale-95 border-2 border-white/30"
-            title={SITE_CONFIG.hero.btnAddArt}
-          >
-            +
-          </button>
         </div>
 
-        {/* Center: Clean Nav Links (Desktop) */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-semibold">
+        {/* Center Zone: Nav Links (Desktop) */}
+        <nav className="hidden md:flex items-center justify-center gap-8 text-sm font-semibold flex-1 px-6 border-x"
+          style={{ borderColor: 'var(--border-card)' }}
+        >
           {navLinks.map(link => (
             <a
               key={link.id}
@@ -68,13 +62,22 @@ export default function Navbar({ onOpenAddModal }: NavbarProps) {
           ))}
         </nav>
 
-        {/* Right: Instagram + Encomendas CTA */}
-        <div className="flex items-center gap-3">
+        {/* Right Zone: Action Buttons (+ Adicionar, Instagram, Encomendas) */}
+        <div className="flex items-center gap-3 pl-4">
+          <button
+            onClick={onOpenAddModal}
+            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#B64FFB] hover:brightness-110 text-white font-bold text-xs shadow-md transition-all active:scale-95 border border-white/30"
+            title={SITE_CONFIG.hero.btnAddArt}
+          >
+            <span>+</span>
+            <span>Arte</span>
+          </button>
+
           <a
             href={SITE_CONFIG.socials.instagram.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex px-4 py-2 rounded-full border-2 text-xs font-bold transition-all hover:bg-white/10"
+            className="hidden lg:inline-flex px-4 py-2 rounded-full border-2 text-xs font-bold transition-all hover:bg-white/10"
             style={{
               borderColor: 'var(--border-card)',
               color: 'var(--text-title)',
@@ -85,7 +88,7 @@ export default function Navbar({ onOpenAddModal }: NavbarProps) {
 
           <a
             href="#encomendas"
-            className="px-5 py-2.5 rounded-full bg-[#FDB767] hover:brightness-110 text-[#230E4D] text-xs font-bold shadow-lg transition-all active:scale-95 border-2 border-white/30"
+            className="px-5 py-2 rounded-full bg-[#FDB767] hover:brightness-110 text-[#230E4D] text-xs font-bold shadow-lg transition-all active:scale-95 border-2 border-white/30"
           >
             Encomendas
           </a>
@@ -104,6 +107,13 @@ export default function Navbar({ onOpenAddModal }: NavbarProps) {
       {/* Mobile Dropdown */}
       {mobileOpen && (
         <div className="md:hidden mt-3 navy-card p-4 rounded-3xl shadow-2xl space-y-2 border-2 border-white/30">
+          <button
+            onClick={() => { onOpenAddModal?.(); setMobileOpen(false); }}
+            className="w-full py-2.5 px-4 rounded-2xl text-sm font-bold bg-[#B64FFB] text-white flex items-center justify-center gap-2 mb-2"
+          >
+            <span>+</span>
+            <span>Adicionar Arte</span>
+          </button>
           {navLinks.map(link => (
             <a
               key={link.id}

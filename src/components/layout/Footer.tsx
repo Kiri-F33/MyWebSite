@@ -17,7 +17,12 @@ export default function Footer() {
   };
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const container = document.getElementById('main-scroll-container');
+    if (container) {
+      container.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const socialItems = [
@@ -28,15 +33,15 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="pt-14 pb-10 mt-12 transition-colors border-t"
+    <footer id="rodape" className="snap-start snap-always w-full min-h-[60vh] flex flex-col justify-between pt-14 pb-10 mt-12 transition-colors border-t border-2"
       style={{ background: 'var(--bg-nav)', borderColor: 'var(--border-card)' }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-10">
           {/* Brand Column */}
           <div className="md:col-span-4 space-y-3">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-[#24C2E5] text-white flex items-center justify-center font-bold text-lg shadow-md border border-white/20">
+              <div className="w-10 h-10 rounded-2xl bg-[#B64FFB] text-white flex items-center justify-center font-bold text-lg shadow-md border border-white/20">
                 🎨
               </div>
               <span className="font-serif text-2xl font-bold" style={{ color: 'var(--text-title)' }}>{brand.name}</span>
@@ -57,8 +62,8 @@ export default function Footer() {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 p-2.5 rounded-2xl border transition-all"
-                  style={{ background: 'rgba(36,194,229,0.06)', borderColor: 'var(--border-card)', color: 'var(--text-title)' }}
+                  className="flex items-center gap-2 p-2.5 rounded-2xl border-2 transition-all hover:scale-105"
+                  style={{ background: 'rgba(182,79,251,0.08)', borderColor: 'var(--border-card)', color: 'var(--text-title)' }}
                 >
                   <span>{social.emoji}</span>
                   <div>
@@ -91,7 +96,7 @@ export default function Footer() {
                   style={{ background: 'var(--bg-input)', borderColor: 'var(--border-card)', color: 'var(--text-title)' }}
                 />
                 <button type="submit"
-                  className="px-4 py-2 rounded-xl bg-[#24C2E5] hover:brightness-110 text-white font-bold text-xs shrink-0 border border-white/20 shadow-md"
+                  className="px-4 py-2 rounded-xl bg-[#B64FFB] hover:brightness-110 text-white font-bold text-xs shrink-0 border border-white/20 shadow-md"
                 >
                   Assinar
                 </button>
@@ -105,7 +110,7 @@ export default function Footer() {
           style={{ borderColor: 'var(--border-card)', color: 'var(--text-muted)' }}
         >
           <p>{brand.copyright}</p>
-          <button onClick={scrollToTop} className="flex items-center gap-2 transition-opacity" style={{ color: 'var(--text-title)' }}>
+          <button onClick={scrollToTop} className="flex items-center gap-2 transition-opacity font-bold hover:scale-105" style={{ color: 'var(--text-title)' }}>
             <span>Voltar ao Topo</span>
             <span>&uarr;</span>
           </button>

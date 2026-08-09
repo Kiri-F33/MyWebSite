@@ -31,7 +31,10 @@ function MainSiteContent() {
   const { isAdmin, customBlocks, deleteCustomBlock } = useAdmin();
 
   return (
-    <div className="h-screen w-screen overflow-y-auto snap-y snap-mandatory scroll-smooth no-scrollbar theme-bg-gradient transition-colors duration-300 flex flex-col relative">
+    <div
+      id="main-scroll-container"
+      className="h-screen w-screen overflow-y-auto snap-y snap-mandatory scroll-smooth no-scrollbar theme-bg-gradient transition-colors duration-300 flex flex-col relative"
+    >
       {/* Interactive Poppable Floating Bubbles Overlay */}
       <InteractiveBubbleOverlay />
 
