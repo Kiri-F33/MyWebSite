@@ -28,7 +28,7 @@ export const SITE_CONFIG = {
     instagram: {
       name: 'Instagram',
       url: 'https://www.instagram.com/kiri_pscheidt?igsh=MTVlYnI5cWR4eWxqZw==', // <-- SEU LINK DO INSTAGRAM
-      handle: '@Kiri',
+      handle: '@Kiri-',
     },
     artstation: {
       name: 'ArtStation',
