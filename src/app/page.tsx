@@ -33,7 +33,7 @@ function MainSiteContent() {
   return (
     <div
       id="main-scroll-container"
-      className="h-screen w-screen overflow-y-auto snap-y snap-mandatory scroll-smooth no-scrollbar theme-bg-gradient transition-colors duration-300 flex flex-col relative"
+      className="h-screen w-screen overflow-y-auto scroll-smooth no-scrollbar theme-bg-gradient transition-colors duration-300 flex flex-col relative"
     >
       {/* Interactive Poppable Floating Bubbles Overlay */}
       <InteractiveBubbleOverlay />
@@ -67,11 +67,11 @@ function MainSiteContent() {
       {/* Top Navbar */}
       <Navbar onOpenAddModal={() => setIsAddModalOpen(true)} />
 
-      {/* Main Snap Container */}
+      {/* Main Container with Natural Smooth Scroll */}
       <main className="flex-1 max-w-7xl mx-auto w-full relative z-10">
         
-        {/* Section 01: Hero Banner (Full Screen Viewport Snap) */}
-        <section id="hero" className="min-h-screen w-full snap-start snap-always flex flex-col justify-center px-4 sm:px-6 pt-12 pb-6">
+        {/* Section 01: Hero Banner */}
+        <section id="hero" className="min-h-[90vh] w-full flex flex-col justify-center px-4 sm:px-6 pt-10 pb-8">
           <AnimatedSectionWrapper animation="zoom-in">
             <CloudHeroBanner onOpenAddModal={() => setIsAddModalOpen(true)} />
           </AnimatedSectionWrapper>
@@ -79,7 +79,7 @@ function MainSiteContent() {
 
         {/* Dynamic ADM Custom Text Blocks (If added by ADM) */}
         {customBlocks.length > 0 && (
-          <section className="min-h-[50vh] w-full snap-start snap-always flex flex-col justify-center px-4 sm:px-6 py-6">
+          <section className="py-8 px-4 sm:px-6">
             <AnimatedSectionWrapper animation="fade-up">
               <div className="navy-card p-6 sm:p-8 rounded-3xl border-2 border-[#B64FFB]/40 max-w-4xl mx-auto">
                 <h3 className="font-serif text-2xl font-bold mb-4 flex items-center justify-between" style={{ color: 'var(--text-title)' }}>
@@ -111,16 +111,16 @@ function MainSiteContent() {
           </section>
         )}
 
-        {/* Section 02: 3 Category Pill Cards (Transition: Fade Up) */}
-        <section id="categorias" className="min-h-screen w-full snap-start snap-always flex flex-col justify-center px-4 sm:px-6 py-6">
+        {/* Section 02: 3 Category Pill Cards */}
+        <section id="categorias" className="min-h-[90vh] w-full flex flex-col justify-center px-4 sm:px-6 py-12">
           <AnimatedSectionWrapper animation="fade-up" delayMs={50}>
             <CategoryPillCards />
           </AnimatedSectionWrapper>
           <SectionDivider icon="🌱" label="Mundo de Ilustrações" />
         </section>
 
-        {/* Section 03: Circular Bubble Gallery (Transition: Zoom In) */}
-        <section id="galeria-bolhas" className="min-h-screen w-full snap-start snap-always flex flex-col justify-center px-4 sm:px-6 py-6">
+        {/* Section 03: Circular Bubble Gallery */}
+        <section id="galeria-bolhas" className="min-h-[90vh] w-full flex flex-col justify-center px-4 sm:px-6 py-12">
           <AnimatedSectionWrapper animation="zoom-in" delayMs={50}>
             <BubbleGallery
               artworks={ARTWORKS_DATA}
@@ -130,8 +130,8 @@ function MainSiteContent() {
           <SectionDivider icon="🎨" label="Acervo Completo" />
         </section>
 
-        {/* Section 04: Standard Gallery Grid Dashboard (Transition: Slide Left) */}
-        <section id="acervo" className="min-h-screen w-full snap-start snap-always flex flex-col justify-center px-4 sm:px-6 py-6">
+        {/* Section 04: Standard Gallery Grid Dashboard */}
+        <section id="acervo" className="min-h-[90vh] w-full flex flex-col justify-center px-4 sm:px-6 py-12">
           <AnimatedSectionWrapper animation="slide-left" delayMs={50}>
             <ArtworkGrid
               artworks={ARTWORKS_DATA}
@@ -141,32 +141,32 @@ function MainSiteContent() {
           <SectionDivider icon="✦" label="Bastidores & Processo" />
         </section>
 
-        {/* Section 05: Process Comparison Slider (Transition: Slide Right) */}
-        <section id="processo" className="min-h-screen w-full snap-start snap-always flex flex-col justify-center px-4 sm:px-6 py-6">
+        {/* Section 05: Process Comparison Slider */}
+        <section id="processo" className="min-h-[90vh] w-full flex flex-col justify-center px-4 sm:px-6 py-12">
           <AnimatedSectionWrapper animation="slide-right" delayMs={50}>
             <ProcessSlider />
           </AnimatedSectionWrapper>
           <SectionDivider icon="✍️" label="Diário de Ateliê" />
         </section>
 
-        {/* Section 06: Blog & Articles Section (Transition: Fade Up) */}
-        <section id="blog" className="min-h-screen w-full snap-start snap-always flex flex-col justify-center px-4 sm:px-6 py-6">
+        {/* Section 06: Blog & Articles Section */}
+        <section id="blog" className="min-h-[90vh] w-full flex flex-col justify-center px-4 sm:px-6 py-12">
           <AnimatedSectionWrapper animation="fade-up" delayMs={50}>
             <BlogSection />
           </AnimatedSectionWrapper>
           <SectionDivider icon="✨" label="Sobre o Atelier" />
         </section>
 
-        {/* Section 07: About Section (Transition: Slide Left) */}
-        <section id="sobre" className="min-h-screen w-full snap-start snap-always flex flex-col justify-center px-4 sm:px-6 py-6">
+        {/* Section 07: About Section */}
+        <section id="sobre" className="min-h-[90vh] w-full flex flex-col justify-center px-4 sm:px-6 py-12">
           <AnimatedSectionWrapper animation="slide-left" delayMs={50}>
             <AboutSection />
           </AnimatedSectionWrapper>
           <SectionDivider icon="💌" label="Encomendas Personalizadas" />
         </section>
 
-        {/* Section 08: Commission Form Section (Transition: Zoom In) */}
-        <section id="encomendas" className="min-h-screen w-full snap-start snap-always flex flex-col justify-center px-4 sm:px-6 py-6">
+        {/* Section 08: Commission Form Section */}
+        <section id="encomendas" className="min-h-[90vh] w-full flex flex-col justify-center px-4 sm:px-6 py-12">
           <AnimatedSectionWrapper animation="zoom-in" delayMs={50}>
             <CommissionSection />
           </AnimatedSectionWrapper>
