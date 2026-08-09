@@ -13,23 +13,23 @@ export default function Navbar({ onOpenAddModal }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navLinks = [
-    { id: 'Home', label: 'Home', href: '#' },
-    { id: 'Gallery', label: 'Galeria', href: '#galeria-bolhas' },
-    { id: 'Blog', label: 'Blog & Redes', href: '#blog' },
-    { id: 'About', label: 'Sobre', href: '#sobre' },
+    { id: 'hero', label: 'Home', href: '#hero' },
+    { id: 'galeria-bolhas', label: 'Galeria', href: '#galeria-bolhas' },
+    { id: 'blog', label: 'Blog & Redes', href: '#blog' },
+    { id: 'sobre', label: 'Sobre', href: '#sobre' },
   ];
 
   return (
-    <header className="sticky top-4 z-40 max-w-6xl mx-auto px-4 sm:px-6">
+    <header className="sticky top-3 z-40 max-w-6xl mx-auto px-4 sm:px-6">
       {/* Floating ThemeToggle in Top-Right Corner */}
       <ThemeToggle />
 
-      <div className="glass-pill-nav-navy py-2.5 px-5 sm:px-8 flex items-center justify-between shadow-2xl">
-        {/* Left: Brand Logo & Add Button with proper spacing */}
+      <div className="glass-pill-nav-navy py-3 px-6 sm:px-8 flex items-center justify-between shadow-2xl border-2 border-white/30">
+        {/* Left: Brand Logo & Add Button with generous spacing */}
         <div className="flex items-center gap-3">
           <a
-            href="#"
-            className="w-10 h-10 rounded-2xl border flex items-center justify-center font-bold text-base transition-transform hover:scale-105 shadow-sm"
+            href="#hero"
+            className="w-10 h-10 rounded-2xl border-2 flex items-center justify-center font-bold text-base transition-transform hover:scale-105 shadow-sm"
             style={{
               background: 'var(--bg-card)',
               borderColor: 'var(--border-card)',
@@ -42,7 +42,7 @@ export default function Navbar({ onOpenAddModal }: NavbarProps) {
 
           <button
             onClick={onOpenAddModal}
-            className="w-10 h-10 rounded-2xl bg-[#B64FFB] hover:brightness-110 text-white flex items-center justify-center font-bold text-lg shadow-md transition-all active:scale-95 border border-white/20"
+            className="w-10 h-10 rounded-2xl bg-[#B64FFB] hover:brightness-110 text-white flex items-center justify-center font-bold text-lg shadow-md transition-all active:scale-95 border-2 border-white/30"
             title={SITE_CONFIG.hero.btnAddArt}
           >
             +
@@ -74,7 +74,7 @@ export default function Navbar({ onOpenAddModal }: NavbarProps) {
             href={SITE_CONFIG.socials.instagram.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex px-4 py-2 rounded-full border text-xs font-bold transition-all hover:bg-white/10"
+            className="hidden sm:inline-flex px-4 py-2 rounded-full border-2 text-xs font-bold transition-all hover:bg-white/10"
             style={{
               borderColor: 'var(--border-card)',
               color: 'var(--text-title)',
@@ -85,7 +85,7 @@ export default function Navbar({ onOpenAddModal }: NavbarProps) {
 
           <a
             href="#encomendas"
-            className="px-5 py-2.5 rounded-full bg-[#FDB767] hover:brightness-110 text-[#230E4D] text-xs font-bold shadow-lg transition-all active:scale-95 border border-white/20"
+            className="px-5 py-2.5 rounded-full bg-[#FDB767] hover:brightness-110 text-[#230E4D] text-xs font-bold shadow-lg transition-all active:scale-95 border-2 border-white/30"
           >
             Encomendas
           </a>
@@ -93,7 +93,7 @@ export default function Navbar({ onOpenAddModal }: NavbarProps) {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden w-10 h-10 rounded-2xl flex items-center justify-center border transition-colors"
+            className="md:hidden w-10 h-10 rounded-2xl flex items-center justify-center border-2 transition-colors"
             style={{ borderColor: 'var(--border-card)', color: 'var(--text-title)' }}
           >
             {mobileOpen ? '✕' : '☰'}
@@ -103,7 +103,7 @@ export default function Navbar({ onOpenAddModal }: NavbarProps) {
 
       {/* Mobile Dropdown */}
       {mobileOpen && (
-        <div className="md:hidden mt-3 navy-card p-4 rounded-3xl shadow-2xl space-y-2 border border-white/20">
+        <div className="md:hidden mt-3 navy-card p-4 rounded-3xl shadow-2xl space-y-2 border-2 border-white/30">
           {navLinks.map(link => (
             <a
               key={link.id}
