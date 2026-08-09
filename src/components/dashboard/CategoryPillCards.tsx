@@ -7,17 +7,17 @@ export default function CategoryPillCards() {
   const { categoriesSection } = SITE_CONFIG;
 
   const cardStyles = [
-    { bg: 'rgba(254,160,109,0.15)', border: 'rgba(254,160,109,0.4)', btnBg: '#FEA06D', icon: '🎨' },
-    { bg: 'rgba(36,194,229,0.15)', border: 'rgba(36,194,229,0.4)', btnBg: '#24C2E5', icon: '🌊' },
-    { bg: 'rgba(237,226,115,0.18)', border: 'rgba(237,226,115,0.5)', btnBg: '#EDE273', icon: '✨' },
+    { bg: 'rgba(253,183,103,0.18)', border: 'rgba(253,183,103,0.45)', btnBg: '#FDB767', icon: '🎨', textColor: '#FFFFFF' },
+    { bg: 'rgba(182,79,251,0.18)', border: 'rgba(182,79,251,0.45)', btnBg: '#B64FFB', icon: '🔮', textColor: '#FFFFFF' },
+    { bg: 'rgba(228,237,115,0.22)', border: 'rgba(228,237,115,0.55)', btnBg: '#E4ED73', icon: '🍋', textColor: '#230E4D' },
   ];
 
   return (
-    <section className="py-10 max-w-7xl mx-auto px-4 sm:px-6">
+    <section className="py-6 max-w-7xl mx-auto px-4 sm:px-6">
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto mb-10">
         <span className="px-3 py-1 rounded-full font-mono text-xs font-semibold uppercase tracking-wider inline-block mb-3 border"
-          style={{ background: 'rgba(36,194,229,0.15)', borderColor: 'rgba(36,194,229,0.3)', color: 'var(--text-accent)' }}
+          style={{ background: 'rgba(182,79,251,0.15)', borderColor: 'rgba(182,79,251,0.3)', color: 'var(--text-accent)' }}
         >
           ✨ {categoriesSection.title}
         </span>
@@ -29,11 +29,10 @@ export default function CategoryPillCards() {
         </p>
       </div>
 
-      {/* 3 Pastel Category Pill Cards */}
+      {/* 3 Category Pill Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
         {categoriesSection.cards.map((card, idx) => {
           const style = cardStyles[idx % cardStyles.length];
-          const isYellowBtn = style.btnBg === '#EDE273';
 
           return (
             <div
@@ -69,7 +68,7 @@ export default function CategoryPillCards() {
                 className="w-full py-3 rounded-2xl font-bold text-xs uppercase tracking-wider text-center block shadow-md hover:brightness-110 transition-all"
                 style={{
                   background: style.btnBg,
-                  color: isYellowBtn ? '#1E1446' : '#FFFFFF',
+                  color: style.textColor,
                 }}
               >
                 Explorar

@@ -42,7 +42,7 @@ export default function Navbar({ onOpenAddModal }: NavbarProps) {
 
           <button
             onClick={onOpenAddModal}
-            className="w-10 h-10 rounded-2xl bg-[#24C2E5] hover:brightness-110 text-white flex items-center justify-center font-bold text-lg shadow-md transition-all active:scale-95 border border-white/20"
+            className="w-10 h-10 rounded-2xl bg-[#B64FFB] hover:brightness-110 text-white flex items-center justify-center font-bold text-lg shadow-md transition-all active:scale-95 border border-white/20"
             title={SITE_CONFIG.hero.btnAddArt}
           >
             +
@@ -85,7 +85,7 @@ export default function Navbar({ onOpenAddModal }: NavbarProps) {
 
           <a
             href="#encomendas"
-            className="px-5 py-2.5 rounded-full bg-[#FEA06D] hover:brightness-110 text-white text-xs font-bold shadow-lg transition-all active:scale-95 border border-white/20"
+            className="px-5 py-2.5 rounded-full bg-[#FDB767] hover:brightness-110 text-[#230E4D] text-xs font-bold shadow-lg transition-all active:scale-95 border border-white/20"
           >
             Encomendas
           </a>

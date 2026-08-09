@@ -49,11 +49,11 @@ export default function CloudHeroBanner({ onOpenAddModal }: CloudHeroBannerProps
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
         {/* Left Text */}
         <div className="lg:col-span-7 space-y-4 text-center lg:text-left">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-[#F9FFE9] text-xs font-mono font-semibold tracking-wider border border-white/30">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-[#F4FFE9] text-xs font-mono font-semibold tracking-wider border border-white/30">
             {hero.badge}
           </span>
 
-          <h1 className="font-serif text-4xl sm:text-6xl font-bold tracking-tight text-[#F9FFE9] leading-tight">
+          <h1 className="font-serif text-4xl sm:text-6xl font-bold tracking-tight text-[#F4FFE9] leading-tight">
             {hero.title}
           </h1>
 
@@ -64,14 +64,14 @@ export default function CloudHeroBanner({ onOpenAddModal }: CloudHeroBannerProps
           <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-4">
             <a
               href="#galeria-bolhas"
-              className="px-6 py-3 rounded-full bg-[#24C2E5] text-white font-bold text-xs uppercase tracking-wider shadow-lg hover:brightness-110 transition-all active:scale-95 border border-white/30"
+              className="px-6 py-3 rounded-full bg-[#B64FFB] text-white font-bold text-xs uppercase tracking-wider shadow-lg hover:brightness-110 transition-all active:scale-95 border border-white/30"
             >
               {hero.btnExplore}
             </a>
 
             <button
               onClick={onOpenAddModal}
-              className="px-6 py-3 rounded-full bg-[#FEA06D] text-white font-bold text-xs uppercase tracking-wider shadow-lg hover:brightness-110 transition-all active:scale-95 border border-white/30"
+              className="px-6 py-3 rounded-full bg-[#FDB767] text-[#230E4D] font-bold text-xs uppercase tracking-wider shadow-lg hover:brightness-110 transition-all active:scale-95 border border-white/30"
             >
               {hero.btnAddArt}
             </button>
@@ -82,9 +82,9 @@ export default function CloudHeroBanner({ onOpenAddModal }: CloudHeroBannerProps
         <div className="lg:col-span-5 flex justify-center lg:justify-end">
           <div className="relative w-72 h-72 sm:w-80 sm:h-80 rounded-3xl bg-white/20 backdrop-blur-md border border-white/40 p-4 shadow-2xl overflow-hidden flex flex-col items-center justify-center text-center">
             <ArtworkPlaceholder title={hero.placeholderTitle} category="Destaque" className="rounded-2xl h-full w-full" />
-            <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-[#150A3C]/90 backdrop-blur-md border border-white/20 text-white">
-              <p className="font-serif text-xs font-bold text-[#EDE273]">{hero.placeholderTitle}</p>
-              <p className="text-[10px] text-[#F9FFE9] opacity-90">{hero.placeholderSubtitle}</p>
+            <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-[#1E0A40]/90 backdrop-blur-md border border-white/20 text-white">
+              <p className="font-serif text-xs font-bold text-[#E4ED73]">{hero.placeholderTitle}</p>
+              <p className="text-[10px] text-[#F4FFE9] opacity-90">{hero.placeholderSubtitle}</p>
             </div>
           </div>
         </div>

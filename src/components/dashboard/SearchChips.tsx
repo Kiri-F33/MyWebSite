@@ -16,9 +16,9 @@ export default function SearchChips() {
   };
 
   const chipColors = [
-    { bg: 'rgba(36,194,229,0.15)', border: 'rgba(36,194,229,0.4)', text: '#24C2E5' },
-    { bg: 'rgba(254,160,109,0.15)', border: 'rgba(254,160,109,0.4)', text: '#FEA06D' },
-    { bg: 'rgba(237,226,115,0.18)', border: 'rgba(237,226,115,0.5)', text: '#EDE273' },
+    { bg: 'rgba(182,79,251,0.16)', border: 'rgba(182,79,251,0.4)', text: '#B64FFB' },
+    { bg: 'rgba(253,183,103,0.18)', border: 'rgba(253,183,103,0.45)', text: '#FDB767' },
+    { bg: 'rgba(228,237,115,0.2)', border: 'rgba(228,237,115,0.5)', text: '#E4ED73' },
   ];
 
   return (
@@ -28,7 +28,7 @@ export default function SearchChips() {
         <h3 className="font-serif text-xl font-bold flex items-center gap-2" style={{ color: 'var(--text-title)' }}>
           <span>Categorias & Tags</span>
         </h3>
-        <button className="w-8 h-8 rounded-full bg-[#24C2E5] text-white flex items-center justify-center text-xs font-bold shadow-md">
+        <button className="w-8 h-8 rounded-full bg-[#B64FFB] text-white flex items-center justify-center text-xs font-bold shadow-md">
           ✕
         </button>
       </div>
@@ -66,7 +66,7 @@ export default function SearchChips() {
 
       {/* Decorative Card */}
       <div className="mt-6 p-4 rounded-3xl navy-card flex items-center gap-4">
-        <div className="w-14 h-14 rounded-2xl bg-[#FEA06D] text-white flex items-center justify-center text-2xl shadow-md border border-white/20">
+        <div className="w-14 h-14 rounded-2xl bg-[#B64FFB] text-white flex items-center justify-center text-2xl shadow-md border border-white/20">
           ✨
         </div>
         <div>

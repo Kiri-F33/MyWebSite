@@ -24,83 +24,75 @@ export default function Home() {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
   return (
-    <div className="h-screen w-screen overflow-y-auto snap-y snap-mandatory scroll-smooth theme-bg-gradient transition-colors duration-300 flex flex-col relative">
+    <div className="min-h-screen theme-bg-gradient transition-colors duration-300 flex flex-col relative overflow-x-hidden">
       {/* Interactive Poppable Floating Bubbles Overlay */}
       <InteractiveBubbleOverlay />
 
       {/* Top Navbar */}
       <Navbar onOpenAddModal={() => setIsAddModalOpen(true)} />
 
-      {/* Hero Banner Section (Full Screen Viewport Snap) */}
-      <section className="min-h-screen w-full snap-start snap-always flex flex-col justify-center relative z-10 pt-16">
+      {/* Hero Banner Section */}
+      <section className="relative z-10 pt-4 pb-8">
         <AnimatedSectionWrapper animation="zoom-in">
           <CloudHeroBanner onOpenAddModal={() => setIsAddModalOpen(true)} />
         </AnimatedSectionWrapper>
       </section>
 
-      {/* Main Content Dashboard with Full Screen Viewport Sections & Snap-Y */}
-      <main className="flex-1 max-w-7xl mx-auto w-full relative z-10">
+      {/* Main Content Dashboard with Natural Smooth Scrolling & Distinct Blur Animations */}
+      <main className="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 relative z-10 space-y-16 py-8">
         
-        {/* Section 1: 3 Pastel Category Pill Cards (Transition: Fade Up) */}
-        <section className="min-h-screen w-full snap-start snap-always flex flex-col justify-center px-4 sm:px-6 py-6">
-          <AnimatedSectionWrapper animation="fade-up" delayMs={50}>
-            <CategoryPillCards />
-          </AnimatedSectionWrapper>
-          <SectionDivider icon="🌱" label="Mundo de Ilustrações" />
-        </section>
+        {/* Section 1: 3 Pastel Category Pill Cards (Transition: Fade Up + Blur) */}
+        <AnimatedSectionWrapper animation="fade-up" delayMs={50}>
+          <CategoryPillCards />
+        </AnimatedSectionWrapper>
 
-        {/* Section 2: Circular Bubble Gallery (Transition: Zoom In) */}
-        <section className="min-h-screen w-full snap-start snap-always flex flex-col justify-center px-4 sm:px-6 py-6">
-          <AnimatedSectionWrapper animation="zoom-in" delayMs={50}>
-            <BubbleGallery
-              artworks={ARTWORKS_DATA}
-              onSelectArtwork={art => setSelectedArtwork(art)}
-            />
-          </AnimatedSectionWrapper>
-          <SectionDivider icon="🎨" label="Acervo Completo" />
-        </section>
+        <SectionDivider icon="🌱" label="Mundo de Ilustrações" />
 
-        {/* Section 3: Standard Gallery Grid Dashboard (Transition: Slide Left) */}
-        <section className="min-h-screen w-full snap-start snap-always flex flex-col justify-center px-4 sm:px-6 py-6">
-          <AnimatedSectionWrapper animation="slide-left" delayMs={50}>
-            <ArtworkGrid
-              artworks={ARTWORKS_DATA}
-              onSelectArtwork={art => setSelectedArtwork(art)}
-            />
-          </AnimatedSectionWrapper>
-          <SectionDivider icon="✦" label="Bastidores & Processo" />
-        </section>
+        {/* Section 2: Circular Bubble Gallery (Transition: Zoom In + Blur) */}
+        <AnimatedSectionWrapper animation="zoom-in" delayMs={50}>
+          <BubbleGallery
+            artworks={ARTWORKS_DATA}
+            onSelectArtwork={art => setSelectedArtwork(art)}
+          />
+        </AnimatedSectionWrapper>
 
-        {/* Section 4: Process Comparison Slider (Transition: Slide Right) */}
-        <section className="min-h-screen w-full snap-start snap-always flex flex-col justify-center px-4 sm:px-6 py-6">
-          <AnimatedSectionWrapper animation="slide-right" delayMs={50}>
-            <ProcessSlider />
-          </AnimatedSectionWrapper>
-          <SectionDivider icon="✍️" label="Diário de Ateliê" />
-        </section>
+        <SectionDivider icon="🎨" label="Acervo Completo" />
 
-        {/* Section 5: Blog & Articles Section (Transition: Fade Up) */}
-        <section className="min-h-screen w-full snap-start snap-always flex flex-col justify-center px-4 sm:px-6 py-6">
-          <AnimatedSectionWrapper animation="fade-up" delayMs={50}>
-            <BlogSection />
-          </AnimatedSectionWrapper>
-          <SectionDivider icon="✨" label="Sobre o Atelier" />
-        </section>
+        {/* Section 3: Standard Gallery Grid Dashboard (Transition: Slide Left + Blur) */}
+        <AnimatedSectionWrapper animation="slide-left" delayMs={50}>
+          <ArtworkGrid
+            artworks={ARTWORKS_DATA}
+            onSelectArtwork={art => setSelectedArtwork(art)}
+          />
+        </AnimatedSectionWrapper>
 
-        {/* Section 6: About Section (Transition: Slide Left) */}
-        <section className="min-h-screen w-full snap-start snap-always flex flex-col justify-center px-4 sm:px-6 py-6">
-          <AnimatedSectionWrapper animation="slide-left" delayMs={50}>
-            <AboutSection />
-          </AnimatedSectionWrapper>
-          <SectionDivider icon="💌" label="Encomendas Personalizadas" />
-        </section>
+        <SectionDivider icon="✦" label="Bastidores & Processo" />
 
-        {/* Section 7: Commission Form Section (Transition: Zoom In) */}
-        <section className="min-h-screen w-full snap-start snap-always flex flex-col justify-center px-4 sm:px-6 py-6">
-          <AnimatedSectionWrapper animation="zoom-in" delayMs={50}>
-            <CommissionSection />
-          </AnimatedSectionWrapper>
-        </section>
+        {/* Section 4: Process Comparison Slider (Transition: Slide Right + Blur) */}
+        <AnimatedSectionWrapper animation="slide-right" delayMs={50}>
+          <ProcessSlider />
+        </AnimatedSectionWrapper>
+
+        <SectionDivider icon="✍️" label="Diário de Ateliê" />
+
+        {/* Section 5: Blog & Articles Section (Transition: Fade Up + Blur) */}
+        <AnimatedSectionWrapper animation="fade-up" delayMs={50}>
+          <BlogSection />
+        </AnimatedSectionWrapper>
+
+        <SectionDivider icon="✨" label="Sobre o Atelier" />
+
+        {/* Section 6: About Section (Transition: Slide Left + Blur) */}
+        <AnimatedSectionWrapper animation="slide-left" delayMs={50}>
+          <AboutSection />
+        </AnimatedSectionWrapper>
+
+        <SectionDivider icon="💌" label="Encomendas Personalizadas" />
+
+        {/* Section 7: Commission Form Section (Transition: Zoom In + Blur) */}
+        <AnimatedSectionWrapper animation="zoom-in" delayMs={50}>
+          <CommissionSection />
+        </AnimatedSectionWrapper>
       </main>
 
       {/* Artwork Lightbox Modal */}

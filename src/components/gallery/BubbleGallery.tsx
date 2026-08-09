@@ -45,7 +45,7 @@ export default function BubbleGallery({ artworks, onSelectArtwork }: BubbleGalle
         {/* Header */}
         <div className="max-w-2xl mx-auto mb-10">
           <span className="px-3 py-1 rounded-full font-mono text-xs font-semibold uppercase tracking-wider inline-block mb-3 border"
-            style={{ background: 'rgba(36,194,229,0.15)', borderColor: 'rgba(36,194,229,0.3)', color: 'var(--text-accent)' }}
+            style={{ background: 'rgba(182,79,251,0.15)', borderColor: 'rgba(182,79,251,0.3)', color: 'var(--text-accent)' }}
           >
             {bubbleGallery.sectionBadge}
           </span>
@@ -69,10 +69,10 @@ export default function BubbleGallery({ artworks, onSelectArtwork }: BubbleGalle
               <div
                 key={art.id}
                 onClick={() => handleBubbleClick(art, index)}
-                className={`group cursor-pointer relative ${sizeClass} rounded-full overflow-hidden border-4 shadow-xl transition-all duration-300 hover:scale-110 hover:border-[#24C2E5] hover:shadow-2xl hover:shadow-[#24C2E5]/40 active:scale-90 flex items-center justify-center ${
+                className={`group cursor-pointer relative ${sizeClass} rounded-full overflow-hidden border-4 shadow-xl transition-all duration-300 hover:scale-110 hover:border-[#B64FFB] hover:shadow-2xl hover:shadow-[#B64FFB]/40 active:scale-90 flex items-center justify-center ${
                   isPopping ? 'animate-pop' : ''
                 }`}
-                style={{ borderColor: 'rgba(249,255,233,0.8)' }}
+                style={{ borderColor: 'rgba(244,255,233,0.85)' }}
                 title={`${art.title} (Clique para estourar & abrir!)`}
               >
                 {hasImage ? (
@@ -84,16 +84,16 @@ export default function BubbleGallery({ artworks, onSelectArtwork }: BubbleGalle
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 ) : (
-                  <div className="w-full h-full bg-gradient-to-br from-[#FEA06D]/40 via-[#EDE273]/40 to-[#24C2E5]/40 flex flex-col items-center justify-center p-3 text-center">
+                  <div className="w-full h-full bg-gradient-to-br from-[#B64FFB]/40 via-[#FDB767]/40 to-[#E4ED73]/40 flex flex-col items-center justify-center p-3 text-center">
                     <span className="text-2xl mb-1">🎨</span>
                     <span className="text-[10px] font-mono font-bold text-slate-800 dark:text-white line-clamp-1">{art.title}</span>
                   </div>
                 )}
 
                 {/* Hover overlay badge */}
-                <div className="absolute inset-0 bg-[#150A3C]/75 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-2 text-center text-white">
-                  <span className="text-xs font-serif font-bold line-clamp-1" style={{ color: 'var(--beige)' }}>{art.title}</span>
-                  <span className="text-[10px] font-mono mt-1 font-semibold" style={{ color: 'var(--sky-surge)' }}>
+                <div className="absolute inset-0 bg-[#1E0A40]/80 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-2 text-center text-white">
+                  <span className="text-xs font-serif font-bold line-clamp-1" style={{ color: 'var(--honeydew)' }}>{art.title}</span>
+                  <span className="text-[10px] font-mono mt-1 font-semibold" style={{ color: 'var(--hyper-magenta)' }}>
                     Estourar & Ver Ficha 🫧
                   </span>
                 </div>
@@ -106,7 +106,7 @@ export default function BubbleGallery({ artworks, onSelectArtwork }: BubbleGalle
         <div className="pt-8">
           <a
             href="#galeria"
-            className="inline-block px-6 py-3 rounded-full bg-[#FEA06D] text-white font-bold text-xs uppercase tracking-wider shadow-lg hover:brightness-110 transition-all active:scale-95 border border-white/30"
+            className="inline-block px-6 py-3 rounded-full bg-[#B64FFB] text-white font-bold text-xs uppercase tracking-wider shadow-lg hover:brightness-110 transition-all active:scale-95 border border-white/30"
           >
             {bubbleGallery.btnLoadMore}
           </a>
