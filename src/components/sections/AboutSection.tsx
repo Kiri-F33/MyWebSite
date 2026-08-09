@@ -1,44 +1,49 @@
 'use client';
 
 import { SITE_CONFIG } from '@/config/siteConfig';
+import { useSiteCustomization } from '@/context/SiteCustomizationContext';
 import ArtworkPlaceholder from '../common/ArtworkPlaceholder';
 
 export default function AboutSection() {
   const { about, brand } = SITE_CONFIG;
+  const { customization } = useSiteCustomization();
+  // Merge: live customization overrides static config
+  const liveAbout = { ...about, ...customization.sections.about };
+  const liveBrand = { ...brand, ...customization.brand };
 
   return (
-    <section id="sobre" className="py-12 max-w-7xl mx-auto px-4 sm:px-6">
-      <div className="navy-card p-8 sm:p-12 lg:p-14 relative overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+    <section id="sobre" className="py-8 max-w-[1700px] mx-auto px-4 sm:px-8">
+      <div className="navy-card p-10 sm:p-14 lg:p-16 relative overflow-hidden border-4 border-[#B64FFB]/30 shadow-[0_16px_0px_rgba(35,14,77,0.15)] rounded-[3.5rem]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Profile Card / Placeholder */}
-          <div className="lg:col-span-5 relative aspect-[4/5] rounded-3xl overflow-hidden shadow-lg border" style={{ borderColor: 'var(--border-card)' }}>
-            <ArtworkPlaceholder title={brand.artistName} category="Artista & Criador" className="h-full rounded-3xl" />
-            <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl backdrop-blur-md border shadow-md"
-              style={{ background: 'var(--bg-card)', borderColor: 'var(--border-card)' }}
-            >
-              <p className="font-serif text-lg font-bold" style={{ color: 'var(--text-title)' }}>{brand.artistName}</p>
-              <p className="text-xs font-mono font-semibold" style={{ color: 'var(--text-accent)' }}>{brand.role}</p>
+          <div className="lg:col-span-5 relative aspect-[4/5] rounded-[3rem] overflow-hidden border-4 border-[#230E4D] dark:border-[#B64FFB] shadow-[0_12px_0px_#230E4D]">
+            <ArtworkPlaceholder title={liveBrand.artistName} category="Artista & Criador" className="h-full rounded-3xl" />
+            <div className="absolute bottom-5 left-5 right-5 p-5 rounded-2xl bg-[#230E4D]/90 backdrop-blur-md border-2 border-[#E4ED73] text-white shadow-xl">
+              <p className="font-serif text-xl font-extrabold text-[#E4ED73] flex items-center gap-2">
+                <span>🎨</span>
+                <span>{liveBrand.artistName}</span>
+              </p>
+              <p className="text-xs font-mono font-bold text-[#FDB767] mt-0.5">{liveBrand.role}</p>
             </div>
           </div>
 
           {/* Text Bio & Tools */}
-          <div className="lg:col-span-7 space-y-5">
-            <span className="px-3 py-1 rounded-full font-mono text-xs font-semibold border inline-block"
-              style={{ background: 'rgba(36,194,229,0.15)', borderColor: 'rgba(36,194,229,0.3)', color: 'var(--text-accent)' }}
-            >
-              {about.sectionBadge}
-            </span>
+          <div className="lg:col-span-7 space-y-6">
+            <div className="cartoon-sticker-badge bg-[#E4ED73] text-[#230E4D] px-4 py-1.5 text-xs font-mono">
+              <span>✨</span>
+              <span>{liveAbout.sectionBadge}</span>
+            </div>
 
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold leading-tight" style={{ color: 'var(--text-title)' }}>
-              {about.title}
+            <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight" style={{ color: 'var(--text-title)' }}>
+              {liveAbout.title}
             </h2>
 
-            <p className="text-sm sm:text-base leading-relaxed font-sans" style={{ color: 'var(--text-body)' }}>
-              {about.bioParagraph1}
+            <p className="text-sm sm:text-base leading-relaxed font-sans font-medium" style={{ color: 'var(--text-body)' }}>
+              {liveAbout.bioParagraph1}
             </p>
 
-            <p className="text-xs sm:text-sm leading-relaxed font-sans opacity-90" style={{ color: 'var(--text-body)' }}>
-              {about.bioParagraph2}
+            <p className="text-xs sm:text-sm leading-relaxed font-sans font-medium opacity-90" style={{ color: 'var(--text-body)' }}>
+              {liveAbout.bioParagraph2}
             </p>
 
             {/* Tools Badges */}
@@ -49,10 +54,9 @@ export default function AboutSection() {
               <div className="flex flex-wrap gap-2">
                 {about.tools.map((tool, idx) => (
                   <span key={idx}
-                    className="px-3 py-1 rounded-full text-xs font-mono font-medium border"
-                    style={{ background: 'rgba(254,160,109,0.15)', borderColor: 'var(--border-card)', color: 'var(--text-body)' }}
+                    className="cartoon-sticker-badge bg-[#FDB767] text-[#230E4D] text-[11px]"
                   >
-                    ✨ {tool}
+                    🎨 {tool}
                   </span>
                 ))}
               </div>
@@ -61,9 +65,9 @@ export default function AboutSection() {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4 pt-4 border-t font-mono text-xs" style={{ borderColor: 'var(--border-card)' }}>
               {about.stats.map((stat, idx) => (
-                <div key={idx}>
-                  <span className="font-serif text-2xl font-bold block" style={{ color: 'var(--text-accent)' }}>{stat.value}</span>
-                  <span style={{ color: 'var(--text-muted)' }}>{stat.label}</span>
+                <div key={idx} className="p-3 rounded-2xl bg-white/40 dark:bg-black/20 border-2 border-[#230E4D]/20 text-center">
+                  <span className="font-serif text-2xl font-extrabold block text-[#B64FFB] dark:text-[#E4ED73]">{stat.value}</span>
+                  <span className="font-bold text-[11px]" style={{ color: 'var(--text-muted)' }}>{stat.label}</span>
                 </div>
               ))}
             </div>
@@ -73,3 +77,4 @@ export default function AboutSection() {
     </section>
   );
 }
+

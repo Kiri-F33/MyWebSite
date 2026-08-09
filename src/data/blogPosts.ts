@@ -19,10 +19,10 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     date: '04 de Agosto, 2026',
     readTime: '6 min de leitura',
     category: 'Processo Criativo',
-    coverImage: '/images/fantasy_portrait.png',
+    coverImage: '',
     author: {
       name: 'Artista',
-      avatar: '/images/charcoal_sketch.png',
+      avatar: '',
       role: 'Ilustrador & Fundador do Atelier'
     },
     tags: ['Ilustração', 'Procreate', 'Dicas de Desenho', 'Tutorial']
@@ -42,10 +42,10 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     date: '28 de Julho, 2026',
     readTime: '4 min de leitura',
     category: 'Materiais & Equipamentos',
-    coverImage: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1200&auto=format&fit=crop',
+    coverImage: '',
     author: {
       name: 'Artista',
-      avatar: '/images/charcoal_sketch.png',
+      avatar: '',
       role: 'Ilustrador & Fundador do Atelier'
     },
     tags: ['Tradicional', 'Grafite', 'Materiais', 'Dicas']
@@ -63,10 +63,10 @@ export const BLOG_POSTS_DATA: BlogPost[] = [
     date: '15 de Julho, 2026',
     readTime: '5 min de leitura',
     category: 'Reflexões & Rotina',
-    coverImage: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=1200&auto=format&fit=crop',
+    coverImage: '',
     author: {
       name: 'Artista',
-      avatar: '/images/charcoal_sketch.png',
+      avatar: '',
       role: 'Ilustrador & Fundador do Atelier'
     },
     tags: ['Sketchbook', 'Rotina', 'Inspiração']

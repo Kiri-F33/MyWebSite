@@ -33,28 +33,28 @@ export default function Footer() {
   ];
 
   return (
-    <footer id="rodape" className="snap-start snap-always w-full min-h-[60vh] flex flex-col justify-between pt-14 pb-10 mt-12 transition-colors border-t border-2"
-      style={{ background: 'var(--bg-nav)', borderColor: 'var(--border-card)' }}
+    <footer id="rodape" className="w-full flex flex-col justify-between pt-14 pb-10 mt-6 transition-colors border-t-4 border-[#230E4D] dark:border-[#B64FFB]"
+      style={{ background: 'var(--bg-nav)' }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full">
+      <div className="max-w-[1700px] mx-auto px-4 sm:px-8 w-full">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-10">
           {/* Brand Column */}
           <div className="md:col-span-4 space-y-3">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-[#B64FFB] text-white flex items-center justify-center font-bold text-lg shadow-md border border-white/20">
+              <div className="w-11 h-11 rounded-2xl bg-[#B64FFB] text-white flex items-center justify-center font-extrabold text-xl shadow-md border-2 border-[#230E4D]">
                 🎨
               </div>
-              <span className="font-serif text-2xl font-bold" style={{ color: 'var(--text-title)' }}>{brand.name}</span>
+              <span className="font-serif text-2xl font-extrabold" style={{ color: 'var(--text-title)' }}>{brand.name}</span>
             </div>
-            <p className="text-xs max-w-sm leading-relaxed font-sans" style={{ color: 'var(--text-body)' }}>
+            <p className="text-xs font-medium max-w-sm leading-relaxed font-sans" style={{ color: 'var(--text-body)' }}>
               {footer.description}
             </p>
           </div>
 
           {/* Social Links */}
           <div className="md:col-span-4 space-y-3">
-            <h4 className="text-xs font-mono uppercase tracking-wider font-bold mb-3" style={{ color: 'var(--text-title)' }}>
-              Redes Sociais
+            <h4 className="text-xs font-mono uppercase tracking-wider font-extrabold mb-3" style={{ color: 'var(--text-title)' }}>
+              ✦ Redes Sociais
             </h4>
             <div className="grid grid-cols-2 gap-2 text-xs">
               {socialItems.map((social, idx) => (
@@ -62,13 +62,13 @@ export default function Footer() {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 p-2.5 rounded-2xl border-2 transition-all hover:scale-105"
-                  style={{ background: 'rgba(182,79,251,0.08)', borderColor: 'var(--border-card)', color: 'var(--text-title)' }}
+                  className="flex items-center gap-2.5 p-3 rounded-2xl border-2 border-[#230E4D]/30 dark:border-white/20 transition-all hover:scale-105 hover:-rotate-1 bg-white/40 dark:bg-black/20 shadow-sm"
+                  style={{ color: 'var(--text-title)' }}
                 >
-                  <span>{social.emoji}</span>
+                  <span className="text-lg">{social.emoji}</span>
                   <div>
-                    <span className="font-bold block">{social.name}</span>
-                    <span className="text-[10px]" style={{ color: 'var(--text-muted)' }}>{social.handle}</span>
+                    <span className="font-extrabold block text-xs">{social.name}</span>
+                    <span className="text-[10px] font-mono" style={{ color: 'var(--text-muted)' }}>{social.handle}</span>
                   </div>
                 </a>
               ))}
@@ -77,28 +77,28 @@ export default function Footer() {
 
           {/* Newsletter */}
           <div className="md:col-span-4 space-y-3">
-            <h4 className="text-xs font-mono uppercase tracking-wider font-bold" style={{ color: 'var(--text-title)' }}>
-              {footer.newsletterTitle}
+            <h4 className="text-xs font-mono uppercase tracking-wider font-extrabold" style={{ color: 'var(--text-title)' }}>
+              ✦ {footer.newsletterTitle}
             </h4>
-            <p className="text-xs" style={{ color: 'var(--text-body)' }}>
+            <p className="text-xs font-medium" style={{ color: 'var(--text-body)' }}>
               {footer.newsletterDescription}
             </p>
 
             {subscribed ? (
-              <p className="text-xs font-mono py-1 font-bold" style={{ color: 'var(--text-accent)' }}>
-                ✓ Inscrição realizada com sucesso!
+              <p className="text-xs font-mono py-2 font-bold text-[#B64FFB] dark:text-[#E4ED73]">
+                ✓ Inscrição realizada com sucesso! 🎉
               </p>
             ) : (
               <form onSubmit={handleSubscribe} className="flex gap-2">
                 <input type="email" required placeholder="Seu melhor e-mail"
                   value={email} onChange={e => setEmail(e.target.value)}
-                  className="w-full px-4 py-2 rounded-xl border text-xs focus:outline-none"
-                  style={{ background: 'var(--bg-input)', borderColor: 'var(--border-card)', color: 'var(--text-title)' }}
+                  className="w-full px-4 py-2.5 rounded-2xl border-2 border-[#230E4D]/30 text-xs focus:outline-none font-medium"
+                  style={{ background: 'var(--bg-input)', color: 'var(--text-title)' }}
                 />
                 <button type="submit"
-                  className="px-4 py-2 rounded-xl bg-[#B64FFB] hover:brightness-110 text-white font-bold text-xs shrink-0 border border-white/20 shadow-md"
+                  className="cartoon-btn-magenta px-5 py-2.5 text-xs uppercase shrink-0"
                 >
-                  Assinar
+                  Assinar ✨
                 </button>
               </form>
             )}
@@ -106,16 +106,17 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="pt-6 border-t flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono"
+        <div className="pt-6 border-t-2 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono font-bold"
           style={{ borderColor: 'var(--border-card)', color: 'var(--text-muted)' }}
         >
           <p>{brand.copyright}</p>
-          <button onClick={scrollToTop} className="flex items-center gap-2 transition-opacity font-bold hover:scale-105" style={{ color: 'var(--text-title)' }}>
+          <button onClick={scrollToTop} className="cartoon-sticker-badge bg-[#E4ED73] text-[#230E4D] cursor-pointer">
             <span>Voltar ao Topo</span>
-            <span>&uarr;</span>
+            <span>↑</span>
           </button>
         </div>
       </div>
     </footer>
   );
 }
+

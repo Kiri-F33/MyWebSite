@@ -73,9 +73,14 @@ export default function BlogPostModal({ post, onClose }: BlogPostModalProps) {
             </div>
           </div>
 
-          {/* Cover placeholder */}
+          {/* Cover image */}
           <div className="relative w-full aspect-[21/9] rounded-2xl overflow-hidden my-6 border" style={{ borderColor: 'var(--border-card)' }}>
-            <ArtworkPlaceholder title={post.title} category={post.category} />
+            {post.coverImage ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={post.coverImage} alt={post.title} className="w-full h-full object-cover" />
+            ) : (
+              <ArtworkPlaceholder title={post.title} category={post.category} />
+            )}
           </div>
 
           {/* Article Paragraphs */}

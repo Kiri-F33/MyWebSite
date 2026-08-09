@@ -7,14 +7,17 @@ import ArtworkCard from './ArtworkCard';
 import AddArtworkModal from './AddArtworkModal';
 import SearchChips from '../dashboard/SearchChips';
 import FeatureCards from '../dashboard/FeatureCards';
+import { useAdmin } from '@/context/AdminContext';
 
 interface ArtworkGridProps {
-  artworks: Artwork[];
+  artworks?: Artwork[];
   onSelectArtwork: (artwork: Artwork) => void;
 }
 
-export default function ArtworkGrid({ artworks: initialArtworks, onSelectArtwork }: ArtworkGridProps) {
-  const [artworks, setArtworks] = useState<Artwork[]>(initialArtworks);
+export default function ArtworkGrid({ artworks: propArtworks, onSelectArtwork }: ArtworkGridProps) {
+  const { artworks: contextArtworks, addArtwork } = useAdmin();
+  const artworks = propArtworks || contextArtworks;
+
   const [activeCategory, setActiveCategory] = useState<ArtworkCategory>('all');
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [visibleCount, setVisibleCount] = useState(4);
@@ -30,8 +33,9 @@ export default function ArtworkGrid({ artworks: initialArtworks, onSelectArtwork
   ];
 
   const handleAddArtwork = (newArt: Artwork) => {
-    setArtworks([newArt, ...artworks]);
+    addArtwork(newArt);
   };
+
 
   const filteredArtworks = activeCategory === 'all'
     ? artworks
@@ -40,18 +44,16 @@ export default function ArtworkGrid({ artworks: initialArtworks, onSelectArtwork
   const displayedArtworks = filteredArtworks.slice(0, visibleCount);
 
   return (
-    <section id="galeria" className="py-8 max-w-7xl mx-auto px-4 sm:px-6">
+    <div className="py-4 max-w-[1700px] mx-auto px-4 sm:px-8">
       {/* Section Header */}
       <div className="mb-6">
-        <span className="px-3 py-1 rounded-full font-mono text-xs font-semibold uppercase tracking-wider inline-block mb-3 border"
-          style={{ background: 'rgba(128,161,212,0.15)', borderColor: 'rgba(128,161,212,0.3)', color: 'var(--sky-blue)' }}
-        >
+        <span className="cartoon-sticker-badge mb-3 bg-[#80A1D4] text-[#230E4D] px-4 py-1.5 text-xs font-mono">
           🖼️ {gallery.sectionBadge}
         </span>
-        <h2 className="font-serif text-3xl sm:text-4xl font-bold mb-2" style={{ color: 'var(--text-title)' }}>
+        <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold mb-3" style={{ color: 'var(--text-title)' }}>
           {gallery.sectionTitle}
         </h2>
-        <p className="text-sm max-w-xl" style={{ color: 'var(--text-body)' }}>{gallery.description}</p>
+        <p className="text-sm sm:text-base font-medium max-w-2xl" style={{ color: 'var(--text-body)' }}>{gallery.description}</p>
       </div>
 
       {/* Category Filter Pills */}
@@ -61,14 +63,11 @@ export default function ArtworkGrid({ artworks: initialArtworks, onSelectArtwork
             <button
               key={cat.key}
               onClick={() => setActiveCategory(cat.key)}
-              className="px-4 py-2 rounded-full text-xs font-semibold transition-all"
-              style={{
-                background: activeCategory === cat.key ? 'var(--text-accent)' : 'var(--bg-card)',
-                color: activeCategory === cat.key ? '#FFFFFF' : 'var(--text-title)',
-                border: `1px solid ${activeCategory === cat.key ? 'transparent' : 'var(--border-card)'}`,
-                transform: activeCategory === cat.key ? 'scale(1.05)' : 'scale(1)',
-                boxShadow: activeCategory === cat.key ? '0 4px 12px rgba(16,185,129,0.3)' : 'none',
-              }}
+              className={`px-4 py-2 rounded-full text-xs font-bold font-mono transition-all border-2 ${
+                activeCategory === cat.key
+                  ? 'bg-[#B64FFB] text-white border-[#230E4D] shadow-[0_4px_0px_#230E4D] scale-105'
+                  : 'bg-white/40 dark:bg-black/20 text-[#230E4D] dark:text-[#F4FFE9] border-[#230E4D]/30 dark:border-white/20 hover:scale-105'
+              }`}
             >
               {cat.label}
             </button>
@@ -77,25 +76,25 @@ export default function ArtworkGrid({ artworks: initialArtworks, onSelectArtwork
 
         <button
           onClick={() => setIsAddModalOpen(true)}
-          className="px-5 py-2.5 rounded-full bg-[#10B981] hover:bg-[#059669] text-white text-xs font-bold font-mono shadow-md transition-all active:scale-95 border border-white/20"
+          className="cartoon-btn-lime px-5 py-2.5 text-xs uppercase"
         >
-          {gallery.btnAddArt}
+          {gallery.btnAddArt} 🎨
         </button>
       </div>
 
       {/* 3-Column Dashboard Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left Column: Artwork Grid */}
-        <div className="lg:col-span-6 space-y-6">
+        <div className="lg:col-span-8 space-y-6">
           <div className="flex items-center justify-between">
-            <h3 className="font-serif text-2xl font-bold flex items-center gap-2" style={{ color: 'var(--text-title)' }}>
+            <h3 className="font-serif text-2xl sm:text-3xl font-extrabold flex items-center gap-2" style={{ color: 'var(--text-title)' }}>
               <span>Artwork</span>
-              <span style={{ color: 'var(--text-accent)' }}>&gt;</span>
+              <span className="text-[#B64FFB]">&gt;</span>
             </h3>
-            <span className="text-xs font-mono" style={{ color: 'var(--text-muted)' }}>({filteredArtworks.length} itens)</span>
+            <span className="text-xs font-mono font-bold" style={{ color: 'var(--text-muted)' }}>({filteredArtworks.length} itens)</span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
             {displayedArtworks.map(artwork => (
               <ArtworkCard key={artwork.id} artwork={artwork} onSelect={onSelectArtwork} />
             ))}
@@ -105,27 +104,23 @@ export default function ArtworkGrid({ artworks: initialArtworks, onSelectArtwork
             <div className="pt-2 text-center">
               <button
                 onClick={() => setVisibleCount(prev => prev + 4)}
-                className="w-full py-3.5 rounded-2xl navy-card font-bold text-xs shadow-md hover:brightness-105 transition-all"
-                style={{ color: 'var(--text-title)' }}
+                className="cartoon-btn-clay w-full py-3.5 text-xs uppercase"
               >
-                Ver Mais Obras
+                Ver Mais Obras ✦
               </button>
             </div>
           )}
         </div>
 
-        {/* Middle Column: Search Tags */}
-        <div className="lg:col-span-3">
+        {/* Right Column: Search Tags & Feature Cards */}
+        <div className="lg:col-span-4 space-y-6">
           <SearchChips />
-        </div>
-
-        {/* Right Column: Feature Cards */}
-        <div className="lg:col-span-3">
           <FeatureCards />
         </div>
       </div>
 
       <AddArtworkModal isOpen={isAddModalOpen} onClose={() => setIsAddModalOpen(false)} onAddArtwork={handleAddArtwork} />
-    </section>
+    </div>
   );
 }
+

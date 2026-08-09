@@ -1,6 +1,6 @@
 'use client';
 
-import { SOCIAL_LINKS } from '@/data/socials';
+import { SITE_CONFIG } from '@/config/siteConfig';
 
 export default function FeatureCards() {
   const items = [
@@ -17,7 +17,7 @@ export default function FeatureCards() {
       title: 'Redes Sociais',
       desc: 'Siga no Instagram, ArtStation e Behance para novidades.',
       icon: '📷',
-      link: SOCIAL_LINKS.instagram.url,
+      link: SITE_CONFIG.socials.instagram.url,
       color: '#FDB767', // Sunlit Clay
     },
     {

@@ -1,6 +1,7 @@
 'use client';
 
 import { SITE_CONFIG } from '@/config/siteConfig';
+import { useSiteCustomization } from '@/context/SiteCustomizationContext';
 import ArtworkPlaceholder from '../common/ArtworkPlaceholder';
 import PoppableBubble from '../common/PoppableBubble';
 
@@ -9,82 +10,107 @@ interface CloudHeroBannerProps {
 }
 
 export default function CloudHeroBanner({ onOpenAddModal }: CloudHeroBannerProps) {
-  const { hero } = SITE_CONFIG;
+  const { hero: staticHero } = SITE_CONFIG;
+  const { customization } = useSiteCustomization();
+  // Live merge: customization panel overrides static config
+  const hero = { ...staticHero, ...customization.hero };
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto rounded-[3rem] cloud-hero-banner pt-12 pb-16 px-6 sm:px-12 overflow-hidden text-white my-6 border-2 border-white/30 shadow-2xl">
-      {/* Interactive Poppable Hero Bubbles */}
-      <PoppableBubble
-        className="absolute top-8 left-10 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm border border-white/50 shadow-md animate-float-slow"
-        pitchMultiplier={0.9}
-        respawnTimeMs={4000}
-      >
-        <div className="w-2 h-2 rounded-full bg-white/80 absolute top-1 left-1.5" />
-      </PoppableBubble>
+    <div className="relative w-full max-w-[1700px] mx-auto cloud-hero-banner py-14 sm:py-20 lg:py-24 px-8 sm:px-14 lg:px-20 overflow-hidden text-white my-4 min-h-[75vh] flex flex-col justify-center">
+      {/* Decorative Wavy Cloud Bottom Contour (Reference Style Img 1 & 3) */}
+      <div className="absolute bottom-0 left-0 right-0 h-12 overflow-hidden pointer-events-none opacity-90">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="relative block w-full h-full text-[var(--bg-page)] fill-current">
+          <path d="M0,0 C150,90 350,-40 500,50 C650,130 900,10 1200,60 L1200,120 L0,120 Z" />
+        </svg>
+      </div>
 
-      <PoppableBubble
-        className="absolute top-16 right-20 w-14 h-14 rounded-full bg-white/20 backdrop-blur-sm border border-white/50 shadow-md animate-float-fast"
-        pitchMultiplier={1.2}
-        respawnTimeMs={3000}
-      >
-        <div className="w-3 h-3 rounded-full bg-white/80 absolute top-1.5 left-2" />
-      </PoppableBubble>
+      {/* Floating Sparkles & Emojis - controlled by showSparkles toggle */}
+      {hero.showSparkles && (
+        <>
+          <div className="absolute top-6 left-1/4 text-3xl animate-float-slow opacity-80 pointer-events-none">✨</div>
+          <div className="absolute top-12 right-1/3 text-2xl animate-float-fast opacity-75 pointer-events-none text-[#E4ED73]">✶</div>
+          <div className="absolute bottom-14 left-10 text-3xl animate-float-slow opacity-80 pointer-events-none">☁️</div>
+          <div className="absolute bottom-16 right-16 text-2xl animate-float-fast opacity-90 pointer-events-none">🌻</div>
+        </>
+      )}
 
-      <PoppableBubble
-        className="absolute bottom-10 left-1/3 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm border border-white/50 shadow-md animate-float-slow"
-        pitchMultiplier={1.0}
-        respawnTimeMs={5000}
-      >
-        <div className="w-2 h-2 rounded-full bg-white/80 absolute top-1 left-1.5" />
-      </PoppableBubble>
+      {/* Interactive Poppable Hero Bubbles - controlled by showBubbles toggle */}
+      {hero.showBubbles && (
+        <>
+          <PoppableBubble
+            className="absolute top-8 left-10 w-16 h-16 rounded-full bg-white/30 backdrop-blur-md border-3 border-white shadow-xl animate-float-slow"
+            pitchMultiplier={0.9}
+            respawnTimeMs={4000}
+          >
+            <div className="w-4 h-4 rounded-full bg-white absolute top-2 left-2.5" />
+          </PoppableBubble>
 
-      <PoppableBubble
-        className="absolute top-1/2 right-10 w-8 h-8 rounded-full bg-white/25 backdrop-blur-sm border border-white/50 shadow-md animate-float-fast"
-        pitchMultiplier={1.4}
-        respawnTimeMs={3500}
-      >
-        <div className="w-1.5 h-1.5 rounded-full bg-white/80 absolute top-1 left-1" />
-      </PoppableBubble>
+          <PoppableBubble
+            className="absolute top-14 right-20 w-20 h-20 rounded-full bg-white/30 backdrop-blur-md border-3 border-white shadow-xl animate-float-fast"
+            pitchMultiplier={1.2}
+            respawnTimeMs={3000}
+          >
+            <div className="w-5 h-5 rounded-full bg-white absolute top-2.5 left-3" />
+          </PoppableBubble>
 
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-        {/* Left Text */}
-        <div className="lg:col-span-7 space-y-4 text-center lg:text-left">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-[#F4FFE9] text-xs font-mono font-bold tracking-wider border border-white/30 shadow-sm">
-            ✨ {hero.badge}
-          </span>
+          <PoppableBubble
+            className="absolute bottom-12 left-1/3 w-14 h-14 rounded-full bg-white/30 backdrop-blur-md border-3 border-white shadow-xl animate-float-slow"
+            pitchMultiplier={1.0}
+            respawnTimeMs={5000}
+          >
+            <div className="w-3.5 h-3.5 rounded-full bg-white absolute top-1.5 left-2" />
+          </PoppableBubble>
+        </>
+      )}
 
-          <h1 className="font-serif text-4xl sm:text-6xl font-bold tracking-tight text-[#F4FFE9] leading-tight drop-shadow-md">
+      <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
+        {/* Left Text Column */}
+        <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div className="cartoon-sticker-badge bg-[#F4FFE9] text-[#230E4D] shadow-md border-2 border-[#230E4D] px-4 py-1.5 text-xs font-mono">
+            <span>✨</span>
+            <span>{hero.badge}</span>
+          </div>
+
+          <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight text-[#F4FFE9] leading-[1.08] drop-shadow-[0_5px_0px_#230E4D]">
             {hero.title}
           </h1>
 
-          <p className="text-white/95 text-sm sm:text-base max-w-xl mx-auto lg:mx-0 leading-relaxed font-sans">
+          <p className="text-white/95 text-base sm:text-lg lg:text-xl max-w-2xl mx-auto lg:mx-0 leading-relaxed font-sans font-medium">
             {hero.subtitle}
           </p>
 
-          <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+          <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-5">
             <a
               href="#galeria-bolhas"
-              className="px-6 py-3.5 rounded-full bg-[#B64FFB] text-white font-bold text-xs uppercase tracking-wider shadow-lg hover:brightness-110 transition-all active:scale-95 border-2 border-white/40"
+              className="cartoon-btn-magenta px-9 py-4 text-sm uppercase tracking-wider block"
             >
-              {hero.btnExplore}
+              {hero.btnExplore} 🫧
             </a>
 
             <button
               onClick={onOpenAddModal}
-              className="px-6 py-3.5 rounded-full bg-[#FDB767] text-[#230E4D] font-bold text-xs uppercase tracking-wider shadow-lg hover:brightness-110 transition-all active:scale-95 border-2 border-white/40"
+              className="cartoon-btn-clay px-9 py-4 text-sm uppercase tracking-wider"
             >
-              {hero.btnAddArt}
+              {hero.btnAddArt} 🎨
             </button>
           </div>
         </div>
 
-        {/* Right Artwork Showcase Display Frame */}
+        {/* Right Artwork Showcase Display Frame (Sticker Frame Style) */}
         <div className="lg:col-span-5 flex justify-center lg:justify-end">
-          <div className="relative w-72 h-72 sm:w-80 sm:h-80 rounded-3xl bg-white/20 backdrop-blur-md border-2 border-white/40 p-4 shadow-2xl overflow-hidden flex flex-col items-center justify-center text-center">
-            <ArtworkPlaceholder title={hero.placeholderTitle} category="Destaque" className="rounded-2xl h-full w-full" />
-            <div className="absolute bottom-3 left-3 right-3 p-3 rounded-2xl bg-[#1E0A40]/90 backdrop-blur-md border border-white/20 text-white shadow-md">
-              <p className="font-serif text-xs font-bold text-[#E4ED73]">{hero.placeholderTitle}</p>
-              <p className="text-[10px] text-[#F4FFE9] opacity-90">{hero.placeholderSubtitle}</p>
+          <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[440px] lg:h-[440px] rounded-[3rem] bg-white/20 backdrop-blur-md border-4 border-white p-5 shadow-[0_16px_0px_#230E4D] overflow-hidden flex flex-col items-center justify-center text-center transform hover:rotate-1 transition-transform">
+            {hero.heroImageUrl ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={hero.heroImageUrl} alt={hero.placeholderTitle} className="rounded-3xl h-full w-full object-cover border-2 border-white/60" />
+            ) : (
+              <ArtworkPlaceholder title={hero.placeholderTitle} category="Destaque" className="rounded-3xl h-full w-full border-2 border-white/60" />
+            )}
+            <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-[#230E4D]/90 backdrop-blur-md border-2 border-[#E4ED73] text-white shadow-xl">
+              <p className="font-serif text-sm sm:text-base font-bold text-[#E4ED73] flex items-center justify-center gap-1.5">
+                <span>✦</span>
+                <span>{hero.placeholderTitle}</span>
+              </p>
+              <p className="text-xs text-[#F4FFE9] opacity-90 mt-0.5">{hero.placeholderSubtitle}</p>
             </div>
           </div>
         </div>
@@ -92,3 +118,4 @@ export default function CloudHeroBanner({ onOpenAddModal }: CloudHeroBannerProps
     </div>
   );
 }
+

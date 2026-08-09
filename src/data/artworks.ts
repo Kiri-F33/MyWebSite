@@ -11,8 +11,8 @@ export const ARTWORKS_DATA: Artwork[] = [
     dimensions: '4000 x 5500 px (300 DPI)',
     description: 'Ilustração conceitual explorando a relação entre mitologia antiga e elementos luminescentes modernos.',
     story: 'Esta obra levou cerca de 18 horas de pintura digital. A ideia surgiu durante uma tempestade de reflexões sobre como culturas antigas interpretavam fenômenos luminosos no céu.',
-    imageUrl: '/images/fantasy_portrait.png',
-    draftImageUrl: '/images/charcoal_sketch.png',
+    imageUrl: '',
+    draftImageUrl: '',
     featured: true,
     tags: ['Digital', 'Fantasia', 'Retrato', 'Procreate', 'Luz & Sombra']
   },
@@ -26,8 +26,8 @@ export const ARTWORKS_DATA: Artwork[] = [
     dimensions: 'A3 (29.7 x 42 cm)',
     description: 'Estudo expressivo com foco em chiaroscuro (luz e sombra dramáticos) e texturas hachuradas.',
     story: 'Desenhado à mão livre no atelier durante sessões de observação ao vivo. O objetivo principal foi capturar a intensidade do olhar com poucos traços firmes.',
-    imageUrl: '/images/charcoal_sketch.png',
-    draftImageUrl: '/images/charcoal_sketch.png',
+    imageUrl: '',
+    draftImageUrl: '',
     featured: true,
     tags: ['Tradicional', 'Carvão', 'Grafite', 'Realismo', 'Hachuras']
   },
@@ -41,7 +41,7 @@ export const ARTWORKS_DATA: Artwork[] = [
     dimensions: '3840 x 2160 px (4K Visual)',
     description: 'Design de ambiente fantástico mesclando ruínas de pedra e vegetação bioluminescente.',
     story: 'Desenvolvido como projeto de worldbuilding para um universo de ficção científica e fantasia.',
-    imageUrl: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1200&auto=format&fit=crop',
+    imageUrl: '',
     featured: false,
     tags: ['Concept Art', 'Cenário', 'Digital', 'Worldbuilding']
   },
@@ -55,7 +55,7 @@ export const ARTWORKS_DATA: Artwork[] = [
     dimensions: '30 x 40 cm',
     description: 'Composição orgânica de botânica e figuras envoltas por neblina suave.',
     story: 'Uma exploração técnica do uso de mídias mistas: manchas imprevisíveis da aquarela controladas pela precisão do nanquim.',
-    imageUrl: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=1200&auto=format&fit=crop',
+    imageUrl: '',
     featured: true,
     tags: ['Aquarela', 'Nanquim', 'Mídia Mista', 'Orgânico']
   },
@@ -69,7 +69,7 @@ export const ARTWORKS_DATA: Artwork[] = [
     dimensions: 'Moleskine Art A5',
     description: 'Página de estudos rápidos de postura corporal, mãos e expressões faciais dinâmicas.',
     story: 'Prática diária de 30 minutos de desenho gestual rápido. Essencial para manter a fluidez do traço e a memória muscular.',
-    imageUrl: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1200&auto=format&fit=crop',
+    imageUrl: '',
     featured: false,
     tags: ['Sketchbook', 'Anatomia', 'Gestual', 'Estudos']
   },
@@ -83,7 +83,7 @@ export const ARTWORKS_DATA: Artwork[] = [
     dimensions: '3000 x 4000 px',
     description: 'Retrato conceitual com paleta neon vibrante e iluminação contraste azul/magenta.',
     story: 'Um teste de iluminação secundária e reflexos metálicos em personagens estilizados.',
-    imageUrl: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=1200&auto=format&fit=crop',
+    imageUrl: '',
     featured: false,
     tags: ['Digital', 'Neon', 'Iluminação', 'Clip Studio']
   }

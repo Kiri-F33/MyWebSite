@@ -8,6 +8,7 @@ export interface Artwork {
   year: number;
   medium: string; // e.g. "Pintura Digital (Procreate)", "Lápis Grafite & Carvão", "Aquarela & Nanquim"
   dimensions?: string;
+  aspectRatio?: 'portrait' | 'landscape' | 'square' | 'auto';
   description: string;
   story: string;
   imageUrl: string;
