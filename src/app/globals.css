@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+:root,
+html[data-theme="light"] {
+  /* Light Theme Palette (Pearl Aqua, Sky Blue & Mint Accent) */
+  --bg-page: #F0F6FA;
+  --bg-card: #FFFFFF;
+  --bg-nav: rgba(255, 255, 255, 0.92);
+  --bg-banner: linear-gradient(180deg, #70A6E8 0%, #8CC0F0 50%, #A2D2FA 100%);
+  --bg-input: #F8FAFC;
+  --text-title: #0F172A;
+  --text-body: #334155;
+  --text-muted: #64748B;
+  --text-accent: #10B981;
+  --mint-green: #34D399;
+  --coral-pink: #FCA5A5;
+  --sky-blue: #80A1D4;
+  --border-card: rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 10px 30px -5px rgba(112, 166, 232, 0.2), 0 4px 12px rgba(0, 0, 0, 0.03);
+  --badge-author-bg: rgba(15, 23, 42, 0.85);
+  --badge-author-text: #FFFFFF;
+}
+
+html[data-theme="dark"] {
+  /* Dark Theme Palette (Deep Navy, Icy Blue & Emerald Mint Accent) */
+  --bg-page: #091540;
+  --bg-card: #0D194A;
+  --bg-nav: rgba(9, 21, 64, 0.90);
+  --bg-banner: linear-gradient(180deg, #1B2CC1 0%, #3D518C 60%, #091540 100%);
+  --bg-input: #091540;
+  --text-title: #FFFFFF;
+  --text-body: #E2E8F0;
+  --text-muted: #94A3B8;
+  --text-accent: #34D399;
+  --mint-green: #34D399;
+  --coral-pink: #FCA5A5;
+  --sky-blue: #7692FF;
+  --border-card: rgba(171, 210, 250, 0.18);
+  --shadow-card: 0 12px 35px -5px rgba(9, 21, 64, 0.6), 0 0 20px rgba(118, 146, 255, 0.05);
+  --badge-author-bg: rgba(9, 21, 64, 0.9);
+  --badge-author-text: #ABD2FA;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
+  --font-serif: var(--font-playfair), Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-body);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Background Atmospheric Gradient */
+.theme-bg-gradient {
+  background: var(--bg-page);
+  transition: background 0.3s ease;
+}
+
+html[data-theme="dark"] .theme-bg-gradient {
+  background: 
+    radial-gradient(circle at 15% 15%, rgba(52, 211, 153, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 85% 25%, rgba(27, 44, 193, 0.25) 0%, transparent 45%),
+    #091540;
+}
+
+html[data-theme="light"] .theme-bg-gradient {
+  background: 
+    radial-gradient(circle at 10% 10%, rgba(52, 211, 153, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 20%, rgba(128, 161, 212, 0.25) 0%, transparent 45%),
+    #F0F6FA;
+}
+
+/* Floating Dynamic Cards */
+.navy-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-card);
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Curved Hero Banner */
+.cloud-hero-banner {
+  background: var(--bg-banner);
+  border-bottom-left-radius: 3rem;
+  border-bottom-right-radius: 3rem;
+  box-shadow: 0 15px 40px -5px rgba(112, 166, 232, 0.3);
+}
+
+.glass-pill-nav-navy {
+  background: var(--bg-nav);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 9999px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-card);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Floating Bubble Animations */
+@keyframes float-bubble {
+  0% { transform: translateY(0px) scale(1); opacity: 0.7; }
+  50% { transform: translateY(-18px) scale(1.05); opacity: 0.9; }
+  100% { transform: translateY(0px) scale(1); opacity: 0.7; }
+}
+
+.animate-float-slow {
+  animation: float-bubble 6s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: float-bubble 4s ease-in-out infinite 1s;
+}
+
+/* POPPING BUBBLE ANIMATION */
+@keyframes bubble-pop {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+.animate-pop {
+  animation: bubble-pop 0.3s ease-out forwards;
+  pointer-events: none;
+}
+
+/* Poppable Bubble Element */
+.poppable-bubble {
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.poppable-bubble:hover {
+  transform: scale(1.15);
+}
+
+.poppable-bubble:active {
+  transform: scale(0.9);
+}
+
+/* Bubble Artwork Circles */
+.bubble-art-circle {
+  border-radius: 9999px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border: 4px solid rgba(255, 255, 255, 0.8);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.bubble-art-circle:hover {
+  transform: scale(1.08) translateY(-6px);
+  box-shadow: 0 15px 35px rgba(52, 211, 153, 0.3);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-page);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mint-green);
+  border-radius: 4px;
+}

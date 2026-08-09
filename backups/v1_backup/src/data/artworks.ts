@@ -1,0 +1,90 @@
+import { Artwork } from '@/types';
+
+export const ARTWORKS_DATA: Artwork[] = [
+  {
+    id: 'guardia-eslava',
+    title: 'Guardiã Eslava & O Vórtice',
+    category: 'digital',
+    categoryName: 'Arte Digital',
+    year: 2026,
+    medium: 'Pintura Digital no Procreate (iPad Pro)',
+    dimensions: '4000 x 5500 px (300 DPI)',
+    description: 'Ilustração conceitual explorando a relação entre mitologia antiga e elementos luminescentes modernos.',
+    story: 'Esta obra levou cerca de 18 horas de pintura digital. A ideia surgiu durante uma tempestade de reflexões sobre como culturas antigas interpretavam fenômenos luminosos no céu.',
+    imageUrl: '/images/fantasy_portrait.png',
+    draftImageUrl: '/images/charcoal_sketch.png',
+    featured: true,
+    tags: ['Digital', 'Fantasia', 'Retrato', 'Procreate', 'Luz & Sombra']
+  },
+  {
+    id: 'estudo-carvao-retrato',
+    title: 'Expressão & Fisionomia em Grafite',
+    category: 'traditional',
+    categoryName: 'Arte Tradicional',
+    year: 2025,
+    medium: 'Carvão Vegetal & Lápis Grafite 6B sobre Papel Canson 200g',
+    dimensions: 'A3 (29.7 x 42 cm)',
+    description: 'Estudo expressivo com foco em chiaroscuro (luz e sombra dramáticos) e texturas hachuradas.',
+    story: 'Desenhado à mão livre no atelier durante sessões de observação ao vivo. O objetivo principal foi capturar a intensidade do olhar com poucos traços firmes.',
+    imageUrl: '/images/charcoal_sketch.png',
+    draftImageUrl: '/images/charcoal_sketch.png',
+    featured: true,
+    tags: ['Tradicional', 'Carvão', 'Grafite', 'Realismo', 'Hachuras']
+  },
+  {
+    id: 'estudo-conceitual-arquitetura',
+    title: 'Cenários do Inconsciente',
+    category: 'concept',
+    categoryName: 'Concept Art',
+    year: 2026,
+    medium: 'Photoshop CS & Mesa Digitalizadora Wacom',
+    dimensions: '3840 x 2160 px (4K Visual)',
+    description: 'Design de ambiente fantástico mesclando ruínas de pedra e vegetação bioluminescente.',
+    story: 'Desenvolvido como projeto de worldbuilding para um universo de ficção científica e fantasia.',
+    imageUrl: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?q=80&w=1200&auto=format&fit=crop',
+    featured: false,
+    tags: ['Concept Art', 'Cenário', 'Digital', 'Worldbuilding']
+  },
+  {
+    id: 'aquarela-nanquim-floresta',
+    title: 'Sussurros na Neblina',
+    category: 'traditional',
+    categoryName: 'Arte Tradicional',
+    year: 2025,
+    medium: 'Aquarela Winsor & Newton + Nanquim sobre Papel Algodão 300g',
+    dimensions: '30 x 40 cm',
+    description: 'Composição orgânica de botânica e figuras envoltas por neblina suave.',
+    story: 'Uma exploração técnica do uso de mídias mistas: manchas imprevisíveis da aquarela controladas pela precisão do nanquim.',
+    imageUrl: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?q=80&w=1200&auto=format&fit=crop',
+    featured: true,
+    tags: ['Aquarela', 'Nanquim', 'Mídia Mista', 'Orgânico']
+  },
+  {
+    id: 'sketchbook-estudos-anatomia',
+    title: 'Caderno de Esboços: Anatomia & Gestual',
+    category: 'sketchbook',
+    categoryName: 'Caderno de Esboços',
+    year: 2026,
+    medium: 'Lápis Esboço 2B & Caneta Gel Branca',
+    dimensions: 'Moleskine Art A5',
+    description: 'Página de estudos rápidos de postura corporal, mãos e expressões faciais dinâmicas.',
+    story: 'Prática diária de 30 minutos de desenho gestual rápido. Essencial para manter a fluidez do traço e a memória muscular.',
+    imageUrl: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=1200&auto=format&fit=crop',
+    featured: false,
+    tags: ['Sketchbook', 'Anatomia', 'Gestual', 'Estudos']
+  },
+  {
+    id: 'neon-cyber-portrait',
+    title: 'Cromia do Futuro',
+    category: 'digital',
+    categoryName: 'Arte Digital',
+    year: 2026,
+    medium: 'Pintura Digital & Ajustes de Cor no Clip Studio Paint',
+    dimensions: '3000 x 4000 px',
+    description: 'Retrato conceitual com paleta neon vibrante e iluminação contraste azul/magenta.',
+    story: 'Um teste de iluminação secundária e reflexos metálicos em personagens estilizados.',
+    imageUrl: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=1200&auto=format&fit=crop',
+    featured: false,
+    tags: ['Digital', 'Neon', 'Iluminação', 'Clip Studio']
+  }
+];
