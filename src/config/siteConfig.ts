@@ -27,8 +27,8 @@ export const SITE_CONFIG = {
     },
     instagram: {
       name: 'Instagram',
-      url: 'https://instagram.com/seu_atelier', // <-- SEU LINK DO INSTAGRAM
-      handle: '@seu_atelier',
+      url: 'https://www.instagram.com/kiri_pscheidt?igsh=MTVlYnI5cWR4eWxqZw==', // <-- SEU LINK DO INSTAGRAM
+      handle: '@Kiri',
     },
     artstation: {
       name: 'ArtStation',
