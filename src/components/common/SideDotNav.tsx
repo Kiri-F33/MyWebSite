@@ -22,24 +22,37 @@ export default function SideDotNav() {
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPos = window.scrollY + window.innerHeight / 2;
-
-      for (const point of points) {
-        const element = document.getElementById(point.id);
-        if (element) {
-          const top = element.offsetTop;
-          const height = element.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(point.id);
-            break;
-          }
+    // Precise IntersectionObserver for section detection
+    const observerCallback: IntersectionObserverCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
         }
-      }
+      });
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const observerOptions: IntersectionObserverInit = {
+      root: null, // viewport
+      threshold: 0.4, // Section is considered active when 40% visible
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    points.forEach((point) => {
+      const element = document.getElementById(point.id);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => {
+      points.forEach((point) => {
+        const element = document.getElementById(point.id);
+        if (element) {
+          observer.unobserve(element);
+        }
+      });
+    };
   }, []);
 
   const scrollToSection = (id: string) => {
@@ -51,7 +64,7 @@ export default function SideDotNav() {
 
   return (
     <nav
-      className="fixed right-4 sm:right-6 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-3 py-3 px-2 rounded-full navy-card border shadow-2xl backdrop-blur-md"
+      className="fixed right-4 sm:right-6 top-1/2 -translate-y-1/2 z-40 flex flex-col gap-3 py-3.5 px-2.5 rounded-full navy-card border-2 shadow-2xl backdrop-blur-md"
       style={{ background: 'var(--bg-nav)', borderColor: 'var(--border-card)' }}
       aria-label="Navegação em Pontos por Seção"
     >
@@ -66,7 +79,7 @@ export default function SideDotNav() {
             aria-label={point.label}
           >
             {/* Tooltip on Hover */}
-            <span className="absolute right-8 px-2.5 py-1 rounded-xl bg-slate-950/90 text-[#F4FFE9] text-[10px] font-mono whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-md border border-white/10 pointer-events-none">
+            <span className="absolute right-9 px-3 py-1 rounded-xl bg-slate-950/90 text-[#F4FFE9] text-[11px] font-mono whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-md border border-white/10 pointer-events-none">
               {point.label}
             </span>
 
@@ -74,8 +87,8 @@ export default function SideDotNav() {
             <span
               className={`rounded-full transition-all duration-300 ${
                 isActive
-                  ? 'w-4 h-4 bg-[#B64FFB] ring-4 ring-[#B64FFB]/30 shadow-lg scale-110'
-                  : 'w-2.5 h-2.5 bg-slate-400/50 hover:bg-[#FDB767] hover:scale-125'
+                  ? 'w-4 h-4 bg-[#B64FFB] ring-4 ring-[#B64FFB]/40 shadow-lg scale-110'
+                  : 'w-2.5 h-2.5 bg-white/40 hover:bg-[#FDB767] hover:scale-125'
               }`}
               style={{
                 backgroundColor: isActive ? 'var(--hyper-magenta)' : undefined,

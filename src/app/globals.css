@@ -54,8 +54,9 @@ html[data-theme="dark"] {
   --font-serif: var(--font-playfair), Georgia, serif;
 }
 
-html {
+html, body {
   scroll-behavior: smooth;
+  height: 100%;
 }
 
 body {
@@ -186,16 +187,17 @@ html[data-theme="light"] .theme-bg-gradient {
   backface-visibility: hidden;
 }
 
-/* Custom Scrollbar */
+/* Hide Default Browser Scrollbar completely across all browsers */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 ::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-page);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--hyper-magenta);
-  border-radius: 4px;
+  display: none;
+  width: 0px;
 }
