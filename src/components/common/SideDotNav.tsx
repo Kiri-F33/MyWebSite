@@ -23,41 +23,67 @@ export default function SideDotNav() {
   ];
 
   useEffect(() => {
-    const scrollContainer = document.getElementById('main-scroll-container');
+    const container = document.getElementById('main-scroll-container');
 
-    const updateActiveDot = () => {
+    const checkActiveSection = () => {
+      const scrollEl = container || document.documentElement;
       const viewportCenter = window.innerHeight / 2;
 
-      for (let i = 0; i < points.length; i++) {
-        const el = document.getElementById(points[i].id);
+      let foundId = points[0].id;
+      let minDistance = Infinity;
+
+      points.forEach((point) => {
+        const el = document.getElementById(point.id);
         if (el) {
           const rect = el.getBoundingClientRect();
-          // Check if section covers the center of viewport
-          if (rect.top <= viewportCenter && rect.bottom >= viewportCenter / 2) {
-            setActiveSection(points[i].id);
-            break;
+          const elementCenter = rect.top + rect.height / 2;
+          const distance = Math.abs(elementCenter - viewportCenter);
+
+          if (distance < minDistance) {
+            minDistance = distance;
+            foundId = point.id;
           }
         }
-      }
+      });
+
+      setActiveSection(foundId);
     };
 
-    if (scrollContainer) {
-      scrollContainer.addEventListener('scroll', updateActiveDot, { passive: true });
+    // Attach scroll listener to scroll container and window
+    if (container) {
+      container.addEventListener('scroll', checkActiveSection, { passive: true });
     }
-    window.addEventListener('scroll', updateActiveDot, { passive: true });
+    window.addEventListener('scroll', checkActiveSection, { passive: true });
 
     // Initial check
-    updateActiveDot();
+    checkActiveSection();
 
-    // Fallback timer for smooth scroll arrival
-    const interval = setInterval(updateActiveDot, 250);
+    // IntersectionObserver for bulletproof detection
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.3) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        root: container || null,
+        threshold: [0.3, 0.5, 0.7],
+      }
+    );
+
+    points.forEach((p) => {
+      const el = document.getElementById(p.id);
+      if (el) observer.observe(el);
+    });
 
     return () => {
-      if (scrollContainer) {
-        scrollContainer.removeEventListener('scroll', updateActiveDot);
+      if (container) {
+        container.removeEventListener('scroll', checkActiveSection);
       }
-      window.removeEventListener('scroll', updateActiveDot);
-      clearInterval(interval);
+      window.removeEventListener('scroll', checkActiveSection);
+      observer.disconnect();
     };
   }, []);
 
@@ -65,7 +91,7 @@ export default function SideDotNav() {
     setActiveSection(id);
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -100,7 +126,7 @@ export default function SideDotNav() {
               {point.label}
             </span>
 
-            {/* Glowing Dot Indicator with High Contrast for Light & Dark Modes */}
+            {/* Glowing Dot Indicator with High Contrast */}
             <span
               className={`rounded-full transition-all duration-300 ${
                 isActive
